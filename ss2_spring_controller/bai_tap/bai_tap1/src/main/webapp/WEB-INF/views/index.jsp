@@ -32,7 +32,7 @@
         <input class="form-check-input" name="condiment" type="checkbox" id="inlineCheckbox4" value="sprouts">
         <label class="form-check-label" for="inlineCheckbox4">Sprouts</label>
     </div>
-    <div >
+    <div>
         <p>${s}</p>
 
     </div>

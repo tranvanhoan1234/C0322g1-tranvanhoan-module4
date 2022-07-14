@@ -9,7 +9,7 @@ public class SandwichRepository implements ISandwichService {
     public String displaySandwich(String[] condiment) {
         String string = "";
         for (int i = 0; i < condiment.length; i++) {
-            string += condiment[i]+"";
+            string += condiment[i] + "";
         }
         return string;
     }
