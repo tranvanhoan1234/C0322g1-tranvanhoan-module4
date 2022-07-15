@@ -1,0 +1,148 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: Admin
+  Date: 15/7/2022
+  Time: 8:44 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>$Title$</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<form:form action="" method="post" modelAttribute="medical">
+    <div class="container ">
+        <h1 style="text-align: center">Tờ Khai Y Tế</h1>
+        <h3 style="text-align: center">Đây là tài liệu quan trọng,thông tin của anh/chị sẽ giúp cơ quan y tế chúng tôi
+            kịp liên lạc khi các bạn bị ngợp xỉu vì kiến thức quá nhiều</h3>
+        <p style="color: red;text-align: center">khuyến cáo: khai báo thông tin sai là vi phạm điều luật của lớp và bị
+            warning đình chỉ tước xuất học </p>
+
+        <div>
+            <p>Họ tên(gi chữ in hoa) <span style="color: red">(*)</span></p>
+            <form:input path="name" type="text" class="form-control"/>
+        </div>
+        <p></p>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <p>Năm sinh <span style="color: red">(*)</span></p>
+                <form:input type="date" path="yearOfBirth" class="form-control"/>
+            </div>
+
+            <div class="col-lg-4">
+                <p>Giới tính <span style="color: red">(*)</span></p>
+                <form:select path="gender" class="form-select">
+                    <option selected>Choose</option>
+                    <option value="0">Nữ</option>
+                    <option value="1">Nam</option>
+                    <option value="2">lgbt</option>
+                </form:select>
+            </div>
+            <div class="col-lg-4">
+                <p>Quốc tịch <span style="color: red">(*)</span></p>
+                <form:input path="nationality" type="year" class="form-control"/>
+            </div>
+        </div>
+        <div>
+            <p>Sổ hộ chiếu hoặc cmnn giấy hợp pháp khac <span style="color: red">(*)</span></p>
+            <form:input path="identityCard" type="text" class="form-control"/>
+        </div>
+        <div class="row" style="width: 70%">
+            <p>thông tin đi lại<span style="color: red">(*)</span></p>
+            <div class="col-lg-2">
+                <form:radiobutton path="travelInformation" class="form-check-input" label="Tàu bay"/>
+            </div>
+
+            <div class="col-lg-2">
+
+                <form:radiobutton path="travelInformation" class="form-check-input" label="Tàu thuyền"/>
+            </div>
+            <div class="col-lg-2">
+
+                <form:radiobutton path="travelInformation" class="form-check-input" label="ô tô"/>
+            </div>
+            <div class="col-lg-2">
+
+                <form:radiobutton path="travelInformation" class="form-check-input" label="khác"/>
+            </div>
+
+
+                <%--            private String name;--%>
+                <%--            private String yearOfBirth;--%>
+                <%--            private String gender;--%>
+                <%--            private String nationality;--%>
+                <%--            private String identityCard;--%>
+                <%--            private String travelInformation;--%>
+                <%--            private String vehicleNumber;--%>
+                <%--            private String seats;--%>
+                <%--            private String departureDay;--%>
+                <%--            private String endDate;--%>
+                <%--            private String withinDays;--%>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <p>Năm sinh <span style="color: red">(*)</span></p>
+                <form:input placeholder="vd:abc1232" path="vehicleNumber" class="form-control"/>
+            </div>
+
+            <div class="col-lg-6">
+                <p>Giới tính <span style="color: red">(*)</span></p>
+                <form:input path="seats" class="form-control"/>
+            </div>
+        </div>
+        <p></p>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="row">
+            <p>ngày khởi hành <span style="color: red">(*)</span></p>
+                <div class="col-lg-4">
+                    <form:input path="departureDay" id="a" type="number" class="form-control" />
+                </div>
+                <div class="col-lg-4">
+
+                    <input type="number" class="form-control">
+                </div>
+                <div class="col-lg-4">
+                    <input type="number" class="form-control">
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                <p>ngày kết thúc <span style="color: red">(*)</span></p>
+                    <div class="col-lg-4">
+                        <form:input path="endDate" id="a" type="number" class="form-control" />
+                    </div>
+                    <div class="col-lg-4">
+                        <input type="number"class="form-control">
+                    </div>
+                    <div class="col-lg-4 ">
+                        <input type="number"class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p></p>
+        <div>
+            <p>trong bong 14 ngầy <span style="color: red">(*)</span></p>
+            <form:input path="withinDays" type="text" class="form-control"/>
+        </div>
+        <p></p>
+        <div>
+        <button type="submit"> create</button>
+
+        </div>
+    </div>
+
+</form:form>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</html>
