@@ -33,7 +33,7 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public Product findById(int id) {
-        for (Product p:productList) {
+        for (Product p : productList) {
             if (p.getId() == id) {
                 return p;
             }
@@ -42,7 +42,7 @@ public class ProductRepository implements IProductRepository {
     }
 
     @Override
-    public void update( Product product) {
+    public void update(Product product) {
         for (Product p : productList) {
             if (p.getId().equals(product.getId())) {
                 p.setName(product.getName());
@@ -61,9 +61,9 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public List<Product> search(String s) {
-        List<Product>productList2=new ArrayList<>();
-        for (Product p:productList) {
-            if (p.getName().contains(s)){
+        List<Product> productList2 = new ArrayList<>();
+        for (Product p : productList) {
+            if (p.getName().contains(s)) {
                 productList2.add(p);
 
             }

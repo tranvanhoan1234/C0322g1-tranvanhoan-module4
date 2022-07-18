@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -22,12 +23,28 @@ public class MedicalDeclarationFormController {
         modelAttribute.addObject("gender", gender);
         return String.valueOf(modelAttribute);
     }
-@PostMapping
-    public String create(@ModelAttribute MedicalDeclarationForm medicalDeclarationForm, Model model) {
-        iMedicalService.save(medicalDeclarationForm);
-        model.addAttribute("medicalDeclarationForm", medicalDeclarationForm);
-        return "list";
+    @GetMapping("/create")
+    public String showFormCreate(Model model) {
+        model.addAttribute("medicineCreate", new MedicalDeclarationForm());
+        return "create";
+    }
 
+    @PostMapping("/create")
+    public String showForm(@ModelAttribute MedicalDeclarationForm medicineClare) {
+        iMedicalService.save(medicineClare);
+        return "redirect:/";
+    }
+
+    @GetMapping("/edit")
+    public String findId(@RequestParam("id") Integer id, Model model) {
+        model.addAttribute("medicine", iMedicalService.findById(id));
+        return "/edit";
+    }
+
+    @PostMapping("/edit")
+    public String save(@ModelAttribute MedicalDeclarationForm medicineClare, Model model) {
+        iMedicalService.update(medicineClare);
+        return "redirect:/";
     }
 }
 //    public String caculator(@RequestParam int one, @RequestParam int two, @RequestParam String calculation, Model model) {

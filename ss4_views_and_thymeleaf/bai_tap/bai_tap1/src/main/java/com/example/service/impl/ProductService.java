@@ -12,6 +12,7 @@ import java.util.List;
 public class ProductService implements IProductService {
     @Autowired
     IProductRepository productRepository;
+
     @Override
     public List<Product> findAll() {
         return productRepository.findAll();
@@ -28,8 +29,8 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public void update( Product product) {
-productRepository.update(product);
+    public void update(Product product) {
+        productRepository.update(product);
     }
 
     @Override

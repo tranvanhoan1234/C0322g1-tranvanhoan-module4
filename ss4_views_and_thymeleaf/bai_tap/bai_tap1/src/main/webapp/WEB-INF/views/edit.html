@@ -12,7 +12,7 @@
     </a>
 </p>
 <div id="form">
-    <form  th:action="@{/edit}" th:object="${product}"
+    <form th:action="@{/edit}" th:object="${product}"
           method="POST">
         <input type="hidden" th:field="*{id}"/>
         <div>
@@ -27,7 +27,7 @@
             <label>description</label>
             <input type="text" th:field="*{description}"/>
         </div>
-    <div>
+        <div>
             <label>manufacturer</label>
             <input type="text" th:field="*{manufacturer}"/>
         </div>

@@ -26,7 +26,27 @@ public class MedicalRepository implements IMedicalRepository {
     }
 
     @Override
-    public voidô save(MedicalDeclarationForm medicalDeclarationForm) {
-        return medicalDeclarationForms.add(medicalDeclarationForm);
+    public String save(MedicalDeclarationForm medicalDeclarationForm) {
+        return String.valueOf(medicalDeclarationForms.add(medicalDeclarationForm));
+    }
+
+    @Override
+    public List<MedicalDeclarationForm> findById(Integer id) {
+        return medicalDeclarationForms;
+    }
+
+    @Override
+    public void update(MedicalDeclarationForm medicineClare) {
+        for (MedicalDeclarationForm m : medicalDeclarationForms) {
+            if (m.getName() == medicineClare.getName()) {
+                m.setName(medicineClare.getName());
+                m.setYearOfBirth(medicineClare.getYearOfBirth());
+                m.setDepartureDay(medicineClare.getDepartureDay());
+                m.setDepartureDay(medicineClare.getDepartureDay());
+                m.setEndDate(medicineClare.getEndDate());
+                m.setTravelInformation(medicineClare.getTravelInformation());
+                break;
+            }
+        }
     }
 }

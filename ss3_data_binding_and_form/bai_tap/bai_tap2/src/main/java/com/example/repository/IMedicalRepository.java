@@ -2,6 +2,8 @@ package com.example.repository;
 
 import com.example.model.MedicalDeclarationForm;
 
+import java.util.List;
+
 public interface IMedicalRepository {
 
 
@@ -10,4 +12,7 @@ public interface IMedicalRepository {
 
     String save(MedicalDeclarationForm medicalDeclarationForm);
 
+    List<MedicalDeclarationForm> findById(Integer id);
+
+    void update(MedicalDeclarationForm medicineClare);
 }

@@ -24,11 +24,12 @@ public class ProductController {
     }
 
     @GetMapping("/search")
-    public String search(@RequestParam String s, Model model ) {
+    public String search(@RequestParam String s, Model model) {
         List<Product> productList1 = iProductService.search(s);
         model.addAttribute("product", productList1);
         return "/index";
     }
+
     @GetMapping("/create")
     public String createProduct(Model model) {
         model.addAttribute("products", new Product());
@@ -54,11 +55,13 @@ public class ProductController {
         iProductService.update(product);
         return "redirect:/";
     }
+
     @GetMapping("/{id}/delete")
     public String delete(@PathVariable int id, Model model) {
         model.addAttribute("product", iProductService.findById(id));
         return "delete";
     }
+
     @PostMapping("delete")
     public String delete(Product customer, RedirectAttributes redirect) {
         iProductService.remove(customer.getId());
