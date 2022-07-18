@@ -14,8 +14,9 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-<form:form action="" method="post" modelAttribute="medical">
-    <div class="container ">
+<%--@elvariable id="medicalDeclarationForm" type=""--%>
+<form:form action="" modelAttribute="medicalDeclarationForm" method="post">
+    <div class="containe ">
         <h1 style="text-align: center">Tờ Khai Y Tế</h1>
         <h3 style="text-align: center">Đây là tài liệu quan trọng,thông tin của anh/chị sẽ giúp cơ quan y tế chúng tôi
             kịp liên lạc khi các bạn bị ngợp xỉu vì kiến thức quá nhiều</h3>
@@ -52,7 +53,7 @@
             <p>Sổ hộ chiếu hoặc cmnn giấy hợp pháp khac <span style="color: red">(*)</span></p>
             <form:input path="identityCard" type="text" class="form-control"/>
         </div>
-        <div class="row" style="width: 70%">
+        <div class="row" style="width: 60%">
             <p>thông tin đi lại<span style="color: red">(*)</span></p>
             <div class="col-lg-2">
                 <form:radiobutton path="travelInformation" class="form-check-input" label="Tàu bay"/>
@@ -135,7 +136,7 @@
         </div>
         <p></p>
         <div>
-        <button type="submit"> create</button>
+        <button type="submit">sumid</button>
 
         </div>
     </div>

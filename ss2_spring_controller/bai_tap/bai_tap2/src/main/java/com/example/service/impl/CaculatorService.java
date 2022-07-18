@@ -6,16 +6,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class CaculatorService implements ICaculatorService {
     @Override
-    public int funtionCaulator(Integer soMot, Integer soHai, String calculation) {
-        switch (calculation){
+    public int funtionCaulator(int one, int two, String calculation) {
+        switch (calculation) {
             case "+":
-               return soMot+soHai;
-               case "-":
-               return soMot-soHai;
-               case "*":
-               return soMot*soHai;
-               case "/":
-               return soMot/soHai;
+                return one + two;
+            case "-":
+                return one - two;
+            case "*":
+                return one * two;
+            case "/":
+                return one / two;
         }
         return Integer.parseInt(calculation);
     }

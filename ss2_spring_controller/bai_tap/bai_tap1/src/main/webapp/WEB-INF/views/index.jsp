@@ -39,6 +39,15 @@
 
     <button type="submit" value="saver">save</button>
     </div>
+    <form action="" method="post">
+        <input type="text" name="soMot">
+        <input type="text" name="soHai">
+        <button name="calculation" value="+">+</button>
+        <button name="calculation" value="-">-</button>
+        <button name="calculation" value="*">*</button>
+        <button name="calculation" value="/">/</button>
+        <div><p>Result Division ${result}</p></div>
+    </form>
 </form>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

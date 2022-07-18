@@ -17,9 +17,8 @@
 </head>
 <body>
 <div class="container">
-    <form:form action="/create" method="post" modelAttribute="emailBox">
+    <form:form action="/create" method="post" modelAttribute="EmailBox">
         <table class="table">
-
             <tr>
                 <td>Lenguages:</td>
                 <td>
@@ -40,7 +39,6 @@
                     </form:select>
                 </td>
             </tr>
-
             <tr>
                 <td>Page Size :</td>
                 <td>
@@ -88,13 +86,7 @@
             </tr>
         </table>
     </form:form>
-    Lenguages: ${emailBox1.lenguages }
-    <br>
-    Page Size: ${emailBox1.pageSize }
-    <br>
-    Spams filter: ${emailBox1.spamsFilter}
-    <br>
-    Signature: ${emailBox1.signature}
+
 </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

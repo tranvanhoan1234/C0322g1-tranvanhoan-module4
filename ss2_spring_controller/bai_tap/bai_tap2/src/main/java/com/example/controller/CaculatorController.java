@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class CaculatorController {
     @Autowired
     ICaculatorService caculatorService;
+
     @GetMapping("")
-    public String display(){
+    public String display() {
         return "index";
-
     }
-    @PostMapping("")
-    public String caculator(@RequestParam ("soMot") Integer soMot, Integer soHai,String calculation, Model model){
-        int result=caculatorService.funtionCaulator(soMot,soHai,calculation);
-        model.addAttribute("result",result);
 
+    @PostMapping("")
+    public String caculator(@RequestParam int one, @RequestParam int two, @RequestParam String calculation, Model model) {
+        int result = caculatorService.funtionCaulator(one, two, calculation);
+        model.addAttribute("result", result);
         return "index";
 
     }

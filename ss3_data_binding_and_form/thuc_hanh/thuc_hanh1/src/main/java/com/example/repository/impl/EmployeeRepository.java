@@ -1,4 +1,8 @@
 package com.example.repository.impl;
 
-public class EmployeeRepository {
+import com.example.service.IEmployeeService;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class EmployeeRepository implements IEmployeeService {
 }
