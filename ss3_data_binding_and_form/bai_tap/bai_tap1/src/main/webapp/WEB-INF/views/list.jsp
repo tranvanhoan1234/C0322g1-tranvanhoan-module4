@@ -11,6 +11,9 @@
     <title>Title</title>
 </head>
 <body>
+
+
+
 Lenguages: ${emailBox.lenguages }
 <br>
 Page Size: ${emailBox.pageSize }

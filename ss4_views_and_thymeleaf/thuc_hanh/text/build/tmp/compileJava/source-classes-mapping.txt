@@ -1,0 +1,12 @@
+com/example/model/Declaration.java
+ com.example.model.Declaration
+com/example/repository/IDeclarationRepository.java
+ com.example.repository.IDeclarationRepository
+com/example/repository/impl/DeclarationRepository.java
+ com.example.repository.impl.DeclarationRepository
+com/example/service/IDeclarationService.java
+ com.example.service.IDeclarationService
+com/example/service/impl/DeclarationService.java
+ com.example.service.impl.DeclarationService
+com/example/controller/DeclarationController.java
+ com.example.controller.DeclarationController

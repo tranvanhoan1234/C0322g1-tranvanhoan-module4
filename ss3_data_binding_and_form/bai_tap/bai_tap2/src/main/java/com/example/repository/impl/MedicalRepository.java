@@ -26,7 +26,7 @@ public class MedicalRepository implements IMedicalRepository {
     }
 
     @Override
-    public String save(MedicalDeclarationForm medicalDeclarationForm) {
-        return String.valueOf(medicalDeclarationForm);
+    public voidô save(MedicalDeclarationForm medicalDeclarationForm) {
+        return medicalDeclarationForms.add(medicalDeclarationForm);
     }
 }
