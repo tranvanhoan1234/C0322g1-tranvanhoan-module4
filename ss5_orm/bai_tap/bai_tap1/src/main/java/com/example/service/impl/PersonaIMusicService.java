@@ -19,21 +19,21 @@ public class PersonaIMusicService implements IPersonaIMusicService {
 
     @Override
     public void save(PersonalMusicPlayerApp song) {
-
+iPersonIMusicRepository.save(song);
     }
 
     @Override
     public PersonalMusicPlayerApp findById(Integer id) {
-        return null;
+        return iPersonIMusicRepository.findById(id);
     }
 
     @Override
     public void edit(PersonalMusicPlayerApp song) {
-
+iPersonIMusicRepository.edit(song);
     }
 
     @Override
     public void delete(Integer id) {
-
+iPersonIMusicRepository.delete(id);
     }
 }

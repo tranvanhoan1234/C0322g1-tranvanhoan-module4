@@ -25,7 +25,7 @@ public class PresonalMusicController {
     @PostMapping("/song/create")
     public String save(@ModelAttribute PersonalMusicPlayerApp song) {
         iPersonaIMusicService.save(song);
-        return "redirect:/song";
+        return "redirect:/list";
     }
 
     @GetMapping("song/{id}/edit")
@@ -38,13 +38,13 @@ public class PresonalMusicController {
     @PostMapping("song/edit")
     public String edit(@ModelAttribute PersonalMusicPlayerApp song){
         iPersonaIMusicService.edit(song);
-        return "redirect:/song";
+        return "redirect:/list";
     }
 
     @GetMapping("song/{id}/delete")
     public String delete(@PathVariable Integer id){
         iPersonaIMusicService.delete(id);
-        return "redirect:/song";
+        return "redirect:/list";
     }
 }
 
