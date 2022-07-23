@@ -8,10 +8,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IBlogRepository extends JpaRepository<Blog,Integer> {
-@Query(value = "select * from blog where blog_name like :search",nativeQuery = true,
-countQuery = "select count(*) from (select * from blog where blog_name like :search) table_name ")
-   Page<Blog> findAll(Pageable pageable ,String search);
+public interface IBlogRepository extends JpaRepository<Blog, Integer> {
+    @Query(value = "select * from blog where blog_name like :search", nativeQuery = true,
+            countQuery = "select count(*) from (select * from blog where blog_name like :search) table_name ")
+    Page<Blog> findAll(Pageable pageable, String search);
 
 
 }
