@@ -4,21 +4,30 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 
 public class FormDto implements Validator {
     private Integer id;
+
     @NotBlank(message = "no first name blank")
+    @Pattern(regexp = "^\\w{5,45}$", message = "tối đã 6 >45 kí tưej")
     private String firstname;
+
     @NotBlank(message = "no last name blank")
+    @Pattern(regexp = "^\\w{5,45}$", message = "tối đã 6 >45 kí tưej")
     private String lastname;
+
     @NotBlank(message = "no phone")
+    @Pattern(regexp = "^0\\d{9}$", message = "10 so")
     private String phoneNumber;
-    @Min(value = 18,message = "age > 18")
-    @Max(value = 100,message = "age<100")
+
+    @NotBlank(message = "Nhập đi thằng ngu")
     private String age;
+
     @Email
     @NotBlank(message = "NO EMAIL")
     private String email;
@@ -90,19 +99,14 @@ public class FormDto implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-        FormDto formDto=(FormDto) target;
-        String firstName=formDto.getFirstname();
-        if (!firstName.matches("^\\w{5,45}$")){
-            errors.rejectValue("firstName", "firstName.rejected", "tối đã 6 >45 kí tưej");
-        }
-        String lastName = formDto.getLastname();
-        if (!lastName.matches("^\\w{5,45}$")) {
-            errors.rejectValue("lastName", "lastName.rejected", "tối da 6 > 56 kí tự");
-        }
-
-        String phoneNumber = formDto.getPhoneNumber();
-        if (!phoneNumber.matches("^0\\d{9}$")) {
-            errors.rejectValue("phone", "phone.rejected", "10 số");
+        FormDto formDto = (FormDto) target;
+        String pattern = "yyyy-MM-dd";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+        LocalDate birthday = LocalDate.parse(formDto.age, formatter);
+        LocalDate now = LocalDate.now();
+        int age = Period.between(birthday, now).getYears();
+        if (age < 18 || age > 100) {
+            errors.rejectValue("age", "age", "Nhập ngu ngày sinh phải từ 18 - 100!");
         }
     }
 }

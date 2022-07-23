@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container-fluid">
-<form class="row g-3" action="/waiting" th:object="${formWaitingDto}" method="post">
+<form class="row g-3" action="/create" th:object="${formWaitingDto}" method="post">
 
 <!--    <td><input class="form-control" type="text" th:field="*{lastName}"></td>-->
 <!--    <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></td>-->
@@ -16,26 +16,36 @@
     <div class="col-12" >
         <label for="inputAddress" class="form-label">Fist name</label>
         <input  type="text" th:field="*{firstname}" class="form-control" id="inputAddress" placeholder="name">
-   <td th:if="${#fields.hasAnyErrors('firsname')}" th:error="*{firstname}"></td>
+        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('firstname')}">
+            <div th:errors="*{firstname}"></div>
+        </div>
     </div>
     <div class="col-12">
         <label for="inputAddress" class="form-label">Fist name</label>
         <input type="text" th:field="*{lastname}" class="form-control" id="inputAddress3" placeholder="name">
-        <td th:if="${#fields.hasAnyErrors('lastname')}" th:error="*{lastname}"></td>
+        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('lastname')}">
+            <div th:errors="*{lastname}"></div>
+        </div>
     </div>
     <div class="col-12">
         <label for="inputAddress2" class="form-label">Phong Number</label>
         <input th:field="*{phoneNumber}" type="text" class="form-control" id="inputAddress2" placeholder=" number phone">
-        <td th:if="${#fields.hasAnyErrors('phoneNumber')}" th:error="*{phoneNumber}">
+        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('phoneNumber')}">
+            <div th:errors="*{phoneNumber}"></div>
+        </div>
     </div>
     <div class="col-md-6">
         <label for="age" class="form-label">Age</label>
         <input th:field="*{age}" type="date" class="form-control" id="age">
-        <td th:if="${#fields.hasAnyErrors('age')}" th:error="*{age}">
+        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('age')}">
+            <div th:errors="*{age}"></div>
+        </div>
     </div>
         <label for="inputEmail4" class="form-label">Email</label>
         <td> <input  th:field="*{email}" type="email" class="form-control" id="inputEmail4"></td>
-        <td th:if="${#fields.hasAnyErrors('email')}" th:error="*{email}"></td>
+        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}">
+            <div th:errors="*{email}"></div>
+        </div>
     </div>
     <div class="col-12">
         <button type="submit" class="btn btn-primary">Sign in</button>
