@@ -7,12 +7,13 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-<div class="container-fluid mt-3">
+<h1 class="text-center text-primary">Song Management</h1>
+<div class="container mt-3">
     <div class="row">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <div class="container-fluid">
                 <li class="nav-item">
-                    <a class="btn btn-primary" th:href="@{/song/create}">Create</a>
+                    <a class="btn btn-primary" th:href="@{/create}">Create</a>
                 </li>
                 <div class="collapse navbar-collapse" id="mynavbar">
                     <ul class="navbar-nav me-auto"></ul>
@@ -28,24 +29,56 @@
     <div class="row">
         <table class="table table-striped table-hover table-bordered">
             <tr class="bg-info">
-                <th>ID</th>
+                <th>STT</th>
                 <th>Name</th>
                 <th>Singer</th>
                 <th>Type</th>
-                <th>Link</th>
-
+                <th>Link</th>l
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
-            <tr th:each="row : ${song}">
-                <td th:text="${row.id}"></td>
+            <tr th:each="row,loop : ${song}">
+                <td th:text="${loop.count}"></td>
                 <td th:text="${row.nameOfTheSong}"></td>
                 <td th:text="${row.performingArtist}"></td>
                 <td th:text="${row.kindOfMusic}"></td>
-                <td th:text="${row.songFilePath}"></td>
+                <td th:radiogroup="${row.songFilePath}"><a href="https://zingmp3.vn/album/Vi-Me-Anh-Bat-Chia-Tay-Single-Miu-Le-Karik-Chau-Dang-Khoa/6BOEEZ99.html">allas</a></td>
+                <td>
+                    <a th:href="@{/song/{id}/edit(id=${row.getId()})}" class="btn btn-outline-warning">edit</a>
 
-                <td><a th:href="@{/song/{id}/edit(id=${row.getId()})}">edit</a></td>
-                <td><a th:href="@{/song/{id}/delete(id=${row.getId()})}">delete</a></td>
+                </td>
+                <td>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                            th:data-bs-target="'#staticBackdrop' + ${row.id}">
+                        Delete
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" th:id="staticBackdrop + ${row.id}" data-bs-backdrop="static"
+                         data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-danger" id="staticBackdropLabel">Warning!</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Do you want delete music <span th:text="${row.nameOfTheSong}" class="text-warning"></span>
+                                    with id = <span th:text="${row.id}" class="text-warning"></span> ?
+                                </div>
+                                <div class="modal-footer">
+                                    <a th:href="@{/song/{id}/delete(id=${row.getId()})}" class="btn btn-outline-success">delete</a>
+                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
 
             </tr>
         </table>

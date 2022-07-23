@@ -1,13 +1,12 @@
-package com.example.modle;
+package com.example.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table
 public class PersonalMusicPlayerApp {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nameOfTheSong;
     private String performingArtist;

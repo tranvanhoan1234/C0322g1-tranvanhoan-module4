@@ -1,6 +1,6 @@
 package com.example.repository.impl;
 
-import com.example.modle.Product;
+import com.example.model.Product;
 import com.example.repository.IProductRepository;
 import org.springframework.stereotype.Repository;
 

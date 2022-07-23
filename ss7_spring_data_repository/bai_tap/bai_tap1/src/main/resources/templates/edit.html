@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container d-flex flex-column align-items-center">
+    <h1 class="text-center my-5">Create</h1>
+    <form th:action="@{/blog/edit}" th:object="${blog}" method="post">
+        <div>
+            <label class="form-label">id</label>
+            <input class="form-control" type="text" th:field="*{id}" readonly>
+        </div>
+        <div>
+            <label class="form-label">Song Name</label>
+            <input class="form-control" type="text" th:field="*{blogName}">
+        </div>
+        <div>
+            <label class="form-label">Singer</label>
+            <input class="form-control" type="text" th:field="*{blogTitle}"></td>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a class="btn btn-primary" href="/">Back</a>
+
+    </form>
+</div>
+</body>
+</html>

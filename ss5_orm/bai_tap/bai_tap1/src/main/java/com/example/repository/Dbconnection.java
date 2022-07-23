@@ -9,14 +9,15 @@ import javax.persistence.EntityManager;
 
 @Repository
 public class Dbconnection {
-    public static SessionFactory sessionFactory;
+    private static SessionFactory sessionFactory;
     public static EntityManager entityManager;
+
     static {
         try {
-            SessionFactory sessionFactory = new Configuration()
+            sessionFactory = new Configuration()
                     .configure("hibernate.conf.xml")
                     .buildSessionFactory();
-            sessionFactory.close();
+            entityManager = sessionFactory.createEntityManager();
         } catch (HibernateException e) {
             e.printStackTrace();
         }

@@ -1,13 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="360cbc89-1feb-4b31-a985-7424cdd4c458" name="Default Changelist" comment="" />
+    <list default="true" id="360cbc89-1feb-4b31-a985-7424cdd4c458" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/ss3_data_binding_and_form/bai_tap/bai_tap1/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ss3_data_binding_and_form/bai_tap/bai_tap1/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss3_data_binding_and_form/bai_tap/bai_tap1/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ss3_data_binding_and_form/bai_tap/bai_tap1/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss3_data_binding_and_form/bai_tap/bai_tap1/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ss3_data_binding_and_form/bai_tap/bai_tap1/.gradle/6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss3_data_binding_and_form/bai_tap/bai_tap1/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ss3_data_binding_and_form/bai_tap/bai_tap1/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss3_data_binding_and_form/bai_tap/bai_tap1/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ss3_data_binding_and_form/bai_tap/bai_tap1/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss3_data_binding_and_form/bai_tap/bai_tap1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ss3_data_binding_and_form/bai_tap/bai_tap1/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss3_data_binding_and_form/bai_tap/bai_tap1/build/libs/bai_tap1-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/ss3_data_binding_and_form/bai_tap/bai_tap1/build/libs/bai_tap1-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss3_data_binding_and_form/bai_tap/bai_tap2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ss3_data_binding_and_form/bai_tap/bai_tap2/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss3_data_binding_and_form/bai_tap/bai_tap2/src/main/java/com/example/controller/MedicalDeclarationFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss3_data_binding_and_form/bai_tap/bai_tap2/src/main/java/com/example/controller/MedicalDeclarationFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/bai_tap1/.idea/bai_tap1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/bai_tap1/.idea/bai_tap1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/bai_tap1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/bai_tap1/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/bai_tap1/src/main/java/com/example/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/bai_tap1/src/main/java/com/example/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/.gradle/6.7/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/.gradle/6.7/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/build/classes/java/main/com/example/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/build/classes/java/main/com/example/controller/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/build/classes/java/main/com/example/modle/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/build/classes/java/main/com/example/modle/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/build/classes/java/main/com/example/repository/IProductRypository.class" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/build/classes/java/main/com/example/repository/IProductRypository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/build/classes/java/main/com/example/repository/impl/ProductRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/build/classes/java/main/com/example/repository/impl/ProductRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/build/classes/java/main/com/example/service/IProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/build/classes/java/main/com/example/service/IProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/build/classes/java/main/com/example/service/impl/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/build/classes/java/main/com/example/service/impl/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/build/libs/tesst-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/build/libs/tesst-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/java/com/example/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/java/com/example/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/java/com/example/modle/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/java/com/example/modle/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/java/com/example/repository/IProductRypository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/java/com/example/repository/IProductRypository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/java/com/example/repository/impl/Dbconnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/java/com/example/repository/impl/Dbconnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/java/com/example/repository/impl/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/java/com/example/repository/impl/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/java/com/example/service/IProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/java/com/example/service/IProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/java/com/example/service/impl/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/java/com/example/service/impl/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/resources/hibernate.conf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/resources/hibernate.conf.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/webapp/WEB-INF/views/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/webapp/WEB-INF/views/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/webapp/WEB-INF/views/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/webapp/WEB-INF/views/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/bai_tap/tesst/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/thuc_hanh/text/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/thuc_hanh/text/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/thuc_hanh/text/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/thuc_hanh/text/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/thuc_hanh/text/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/thuc_hanh/text/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/thuc_hanh/text/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/thuc_hanh/text/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/thuc_hanh/text/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/thuc_hanh/text/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/thuc_hanh/text/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/thuc_hanh/text/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss4_views_and_thymeleaf/thuc_hanh/text/build/libs/text-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/ss4_views_and_thymeleaf/thuc_hanh/text/build/libs/text-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/.idea/bai_tap1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/.idea/bai_tap1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/build/classes/java/main/com/example/controller/PresonalMusicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/build/classes/java/main/com/example/controller/PresonalMusicController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/build/classes/java/main/com/example/modle/PersonalMusicPlayerApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/build/classes/java/main/com/example/modle/PersonalMusicPlayerApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/build/classes/java/main/com/example/repository/Dbconnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/build/classes/java/main/com/example/repository/Dbconnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/build/classes/java/main/com/example/repository/impl/PersonalMusicRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/build/classes/java/main/com/example/repository/impl/PersonalMusicRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/build/libs/bai_tap1-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/build/libs/bai_tap1-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/build/resources/main/hibernate.conf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/build/resources/main/hibernate.conf.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/src/main/java/com/example/AppConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/src/main/java/com/example/AppConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/src/main/java/com/example/controller/PresonalMusicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/src/main/java/com/example/controller/PresonalMusicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/src/main/java/com/example/modle/PersonalMusicPlayerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/src/main/java/com/example/modle/PersonalMusicPlayerApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/src/main/java/com/example/repository/Dbconnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/src/main/java/com/example/repository/Dbconnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/src/main/java/com/example/repository/impl/PersonalMusicRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/src/main/java/com/example/repository/impl/PersonalMusicRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/src/main/resources/hibernate.conf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/src/main/resources/hibernate.conf.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/src/main/webapp/WEB-INF/views/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/src/main/webapp/WEB-INF/views/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/src/main/webapp/WEB-INF/views/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/src/main/webapp/WEB-INF/views/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/ss5_orm/bai_tap/bai_tap1/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss6_jpa/thuc_hanh/thuc_hanh1/src/main/resources/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/ss6_jpa/thuc_hanh/thuc_hanh1/src/main/resources/templates/list.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="2BvLYh2gTo7y2hSLKvlH2vmWGkX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -17,8 +96,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/module4/ss1_string_mvc/bai_tap/bai_tap1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ss6_jpa/bai_tap/bai_tap1" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -30,20 +110,11 @@
       <option name="presentableId" value="Default" />
       <updated>1657781661151</updated>
       <workItem from="1657781665051" duration="36000" />
+      <workItem from="1658413344826" duration="41000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1657781700015">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1657781700015" />
-    <state x="65" y="0" key="new project wizard" timestamp="1657781683414">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1657781683414" />
+    <option name="version" value="3" />
   </component>
 </project>

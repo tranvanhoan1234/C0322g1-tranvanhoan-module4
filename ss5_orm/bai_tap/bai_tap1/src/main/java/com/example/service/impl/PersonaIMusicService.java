@@ -1,6 +1,6 @@
 package com.example.service.impl;
 
-import com.example.modle.PersonalMusicPlayerApp;
+import com.example.model.PersonalMusicPlayerApp;
 import com.example.repository.IPersonIMusicRepository;
 import com.example.service.IPersonaIMusicService;
 import org.springframework.beans.factory.annotation.Autowired;

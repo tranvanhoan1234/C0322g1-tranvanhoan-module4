@@ -1,4 +1,4 @@
-package com.example.modle;
+package com.example.model;
 
 public class Product {
     private Integer id;

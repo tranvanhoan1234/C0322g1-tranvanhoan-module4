@@ -9,10 +9,10 @@ import javax.persistence.Id;
 public class Blog {
     @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String blogName;
-    private String blogTitle;
-    private boolean status;
+        private Integer id;
+        private String blogName;
+        private String blogTitle;
+        private boolean status;
 
 
     public Blog() {

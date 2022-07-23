@@ -1,40 +1,51 @@
 package com.example.controller;
 
-import com.example.modle.Product;
+import com.example.model.Product;
 import com.example.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
 public class ProductController {
-    @Autowired
-    IProductService iProductService;
+        @Autowired
+        IProductService iProductService;
+        @GetMapping("")
+        public String display(Model model){
+            List<Product> p =iProductService.findAll();
+            model.addAttribute("product",p);
+            return "list";
+        }
 
-    @GetMapping("")
-    public String index(Model model) {
-        List<Product> productList = iProductService.findAll();
-        model.addAttribute("product", productList);
-        return "index";
-    }
+        @GetMapping("/create")
+        public String create(Model model){
+            model.addAttribute("product",new Product());
+            return "create";
+        }
+        @PostMapping("/product/create")
+        public String save(@ModelAttribute Product product) {
+            iProductService.save(product);
+            return "redirect:/";
+        }
+        @GetMapping("/product/{id}/edit")
+        public String showEdit(@PathVariable Integer id, Model model){
+            Product product = iProductService.findById(id);
+            model.addAttribute("product",product);
+            return "/edit";
+        }
 
-    @GetMapping("/search")
-    public String search(@RequestParam String s, Model model) {
-        model.addAttribute("product", iProductService.findByName(s));
-        return "/index";
-    }
-
-    @GetMapping("/deletee")
-    public String delete(@RequestParam int id) {
-        System.out.println(id);
-        iProductService.delete(id);
-        return "redirect:/";
-    }
+        @PostMapping("/product/edit")
+        public String edit(@ModelAttribute Product song){
+            iProductService.edit(song);
+            return "redirect:/";
+        }
+        @GetMapping("/product/{id}/delete")
+        public String delete(@PathVariable Integer id){
+            iProductService.delete(id);
+            return "redirect:/";
+        }
 
 }

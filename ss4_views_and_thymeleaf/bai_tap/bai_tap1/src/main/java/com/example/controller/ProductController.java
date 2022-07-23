@@ -1,6 +1,6 @@
 package com.example.controller;
 
-import com.example.modle.Product;
+import com.example.model.Product;
 import com.example.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -68,30 +68,4 @@ public class ProductController {
         redirect.addFlashAttribute("product", "Removed product successfully!");
         return "redirect:/";
     }
-
 }
-//    @Override
-//    public List<Customer> findAll() {
-//        return new ArrayList<>(customers.values());
-//    }
-//
-//    @Override
-//    public void save(Customer customer) {
-//        customers.put(customer.getId(), customer);
-//    }
-//
-//    @Override
-//    public Customer findById(int id) {
-//        return customers.get(id);
-//    }
-//
-//    @Override
-//    public void update(int id, Customer customer) {
-//        customers.put(id, customer);
-//
-//    }
-//
-//    @Override
-//    public void remove(int id) {
-//        customers.remove(id);
-//    }

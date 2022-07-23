@@ -21,13 +21,6 @@ public class BlogController {
         model.addAttribute("blogList", blogList);
         return "list";
     }
-
-    //    @GetMapping("/search")
-    //    public String search(@RequestParam String s, Model model) {
-    //        model.addAttribute("product", iProductService.findByName(s));
-    //        return "/index";
-    //    }
-//
     @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("blog", new Blog());

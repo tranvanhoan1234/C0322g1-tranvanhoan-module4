@@ -1,6 +1,6 @@
 package com.example.service;
 
-import com.example.modle.PersonalMusicPlayerApp;
+import com.example.model.PersonalMusicPlayerApp;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.example.service.impl;
 
-import com.example.modle.Product;
+import com.example.model.Product;
 import com.example.repository.IProductRypository;
 import com.example.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,21 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public void delete(int id) {
-      iProductRypository.delete(id);
+    public void delete(Integer id) {
+        iProductRypository.delete(id);
+    }
+    @Override
+    public void save(Product product) {
+        iProductRypository.save(product);
+    }
+
+    @Override
+    public void edit(Product product) {
+        iProductRypository.edit(product);
+    }
+
+    @Override
+    public Product findById(Integer id) {
+        return iProductRypository.findById(id);
     }
 }

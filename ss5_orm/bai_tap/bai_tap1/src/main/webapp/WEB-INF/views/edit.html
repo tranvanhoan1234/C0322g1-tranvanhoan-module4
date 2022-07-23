@@ -9,35 +9,30 @@
 <body>
 <div class="container mt-3">
     <h1 class="text-center my-5">Edit Song</h1>
-    <form th:object="${PersonalMusicPlayerApp}" action="/song/edit" method="post">
-        <table class="table table-hover">
-            <tr hidden>
-                <td><label>ID</label></td>
-                <td><input class="form-control" type="text" th:field="*{id}"></td>
-            </tr>
-            <tr>
-                <td><label>Song Name</label></td>
-                <td><input class="form-control" type="text" th:field="*{nameOfTheSong}"></td>
-            </tr>
-            <tr>
-                <td><label>Singer</label></td>
-                <td><input class="form-control" type="text" th:field="*{performingArtist}"></td>
-            </tr>
-            <tr>
-                <td><label>Song Type</label></td>
-                <td><input class="form-control" type="text" th:field="*{kindOfMusic}"></td>
-            </tr>
-            <tr>
-                <td><label>Link</label></td>
-                <td><input class="form-control" type="text" th:field="*{songFilePath}"></td>
-            </tr>
-            <tr>
-                <td>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <a class="btn btn-primary" href="/song">Back</a>
-                </td>
-            </tr>
-        </table>
+    <form th:object="${product}" action="/song/edit" method="post">
+        <div>
+            <label class="form-label">ID</label>
+            <input class="form-control" type="text" th:field="*{id}" readonly>
+        </div>
+        <div>
+            <label class="form-label">Song Name</label>
+            <input class="form-control" type="text" th:field="*{nameOfTheSong}">
+        </div>
+        <div>
+            <label class="form-label" >Singer</label>
+            <input class="form-control" type="text" th:field="*{performingArtist}"></td>
+        </div>
+        <div>
+            <label class="form-label">Song Type</label>
+            <input class="form-control" type="text" th:field="*{kindOfMusic}"></td>
+        </div>
+        <div>
+            <label class="form-label">Link</label>
+            <input class="form-control" type="text" th:field="*{songFilePath}"></td>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a class="btn btn-primary" href="/">Back</a>
     </form>
 </div>
 </body>

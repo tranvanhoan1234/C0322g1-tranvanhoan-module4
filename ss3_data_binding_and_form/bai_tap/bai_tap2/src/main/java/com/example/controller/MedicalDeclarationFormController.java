@@ -1,53 +1,72 @@
 package com.example.controller;
 
-import com.example.model.MedicalDeclarationForm;
-import com.example.service.IMedicalService;
+import com.example.modle.Product;
+import com.example.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
 
 @Controller
-public class MedicalDeclarationFormController {
+
+public class ProductController {
     @Autowired
-    IMedicalService iMedicalService;
+    IProductService iProductService;
 
     @GetMapping("")
-    public String display() {
-        ModelAndView modelAttribute = new ModelAndView("viTri", "toKhai", new MedicalDeclarationForm());
-        String[] gender = iMedicalService.getGender();
-        modelAttribute.addObject("gender", gender);
-        return String.valueOf(modelAttribute);
+    public String display(Model model) {
+        List<Product> productList = iProductService.findAll();
+        model.addAttribute("product", productList);
+        return "/index";
     }
+
+    @GetMapping("/search")
+    public String search(@RequestParam String s, Model model) {
+        List<Product> productList1 = iProductService.search(s);
+        model.addAttribute("product", productList1);
+        return "/index";
+    }
+
     @GetMapping("/create")
-    public String showFormCreate(Model model) {
-        model.addAttribute("medicineCreate", new MedicalDeclarationForm());
-        return "create";
+    public String createProduct(Model model) {
+        model.addAttribute("products", new Product());
+        return "/create";
     }
 
-    @PostMapping("/create")
-    public String showForm(@ModelAttribute MedicalDeclarationForm medicineClare) {
-        iMedicalService.save(medicineClare);
-        return "redirect:/";
-    }
-
-    @GetMapping("/edit")
-    public String findId(@RequestParam("id") Integer id, Model model) {
-        model.addAttribute("medicine", iMedicalService.findById(id));
+    @GetMapping("{id}/edit")
+    public String edit(@PathVariable int id, Model model) {
+        model.addAttribute("product", iProductService.findById(id));
         return "/edit";
+
+    }
+
+    @PostMapping("/save")
+    public String save(Product product) {
+        product.setId(0);
+        iProductService.save(product);
+        return "redirect:/";
     }
 
     @PostMapping("/edit")
-    public String save(@ModelAttribute MedicalDeclarationForm medicineClare, Model model) {
-        iMedicalService.update(medicineClare);
+    public String update(@ModelAttribute Product product) {
+        iProductService.update(product);
         return "redirect:/";
     }
+
+    @GetMapping("/{id}/delete")
+    public String delete(@PathVariable int id, Model model) {
+        model.addAttribute("product", iProductService.findById(id));
+        return "delete";
+    }
+
+    @PostMapping("delete")
+    public String delete(Product customer, RedirectAttributes redirect) {
+        iProductService.remove(customer.getId());
+        redirect.addFlashAttribute("product", "Removed product successfully!");
+        return "redirect:/";
+    }
+
 }
-//    public String caculator(@RequestParam int one, @RequestParam int two, @RequestParam String calculation, Model model) {
-//        int result = caculatorService.funtionCaulator(one, two, calculation);
-//        model.addAttribute("result", result);
-//        return "index";
