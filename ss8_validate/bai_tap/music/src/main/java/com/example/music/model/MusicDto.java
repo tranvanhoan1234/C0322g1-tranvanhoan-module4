@@ -10,20 +10,20 @@ public class MusicDto implements Validator {
     private Integer id;
     @NotBlank(message = "name not blank")
     @Pattern(regexp = "^\\w{0,800}$", message = "tối đã 0>800 kí tưej")
-    @Pattern(regexp = "'[a-zA-Z0-9\\+]*$'", message = "k chuaws casc kis tuwj ddawcj bieet")
+//    @Pattern(regexp = "'[a-zA-Z0-9\\+]*$'", message = "k chuaws casc kis tuwj ddawcj bieet")
     private String nameOfTheSong;
-    @NotBlank(message = "not per khoong dc troosng")
+    @NotBlank(message ="not per khoong dc troosng")
     @Pattern(regexp = "^\\w{0,300}$", message = "tối đã 0>800 kí tưej")
-    @Pattern(regexp = "'[a-zA-Z0-9\\+]*$'", message = "k chuaws casc kis tuwj ddawcj bieet")
+//    @Pattern(regexp = "'[a-zA-Z0-9\\+]*$'", message = "k chuaws casc kis tuwj ddawcj bieet")
     private String performingArtist;
     @NotBlank(message = "not kindOfMusic khoong dc troosng")
     @Pattern(regexp = "^\\w{0,1000}$", message = "tối đã 0>800 kí tưej")
-    @Pattern(regexp = "'[a-zA-Z0-9\\+]*$'", message = "k chuaws casc kis tuwj ddawcj bieet")
+//    @Pattern(regexp = "'[a-zA-Z0-9\\+]*$'", message = "k chuaws casc kis tuwj ddawcj bieet")
 
     private String kindOfMusic;
     @NotBlank(message = "not songFilePath khoong dc troosng")
     @Pattern(regexp = "^\\w{0,800}$", message = "tối đã 0>800 kí tưej") 
-    @Pattern(regexp = "'[a-zA-Z0-9\\+]*$'", message = "k chuaws casc kis tuwj ddawcj bieet")
+//    @Pattern(regexp = "'[a-zA-Z0-9\\+]*$'", message = "k chuaws casc kis tuwj ddawcj bieet")
     private String songFilePath;
 
     public MusicDto() {

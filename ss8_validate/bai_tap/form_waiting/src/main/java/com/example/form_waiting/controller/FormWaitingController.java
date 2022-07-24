@@ -37,7 +37,7 @@ public class FormWaitingController {
             return "create";
         }
         FormWaiting formWaiting = new FormWaiting();
-        BeanUtils.copyProperties(formDto, formWaiting);
+        BeanUtils.copyProperties(formDto,formWaiting);
         iFormService.save(formWaiting);
         redirectAttributes.addFlashAttribute("save","Add or Update Successfully!");
         return "redirect:/home";

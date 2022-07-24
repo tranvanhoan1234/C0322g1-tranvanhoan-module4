@@ -20,7 +20,7 @@ public class MusicController {
     @Autowired
     IMusicService iMusicService;
 
-    @GetMapping("home")
+    @GetMapping({"/home",""})
     public String display(Model model) {
         model.addAttribute("song", iMusicService.findAll());
         return "list";
@@ -39,7 +39,6 @@ public class MusicController {
             return "create";
         }
         Music music = new Music();
-        System.out.println("aaaa");
         BeanUtils.copyProperties(musicDto, music);
         iMusicService.save(music);
         redirectAttributes.addFlashAttribute("save", "add them mowis");

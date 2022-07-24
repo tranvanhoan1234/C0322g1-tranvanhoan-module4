@@ -17,8 +17,8 @@ public class FormDto implements Validator {
     @Pattern(regexp = "^\\w{5,45}$", message = "tối đã 6 >45 kí tưej")
     private String firstname;
 
-    @NotBlank(message = "no last name blank")
-    @Pattern(regexp = "^\\w{5,45}$", message = "tối đã 6 >45 kí tưej")
+        @NotBlank(message = "no last name blank")
+        @Pattern(regexp = "^\\w{5,45}$", message = "tối đã 6 >45 kí tưej")
     private String lastname;
 
     @NotBlank(message = "no phone")
