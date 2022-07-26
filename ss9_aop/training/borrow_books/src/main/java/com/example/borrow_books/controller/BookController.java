@@ -29,6 +29,7 @@ public class BookController {
 
     @GetMapping("/create")
     public String createBook(Model model) {
+
         model.addAttribute("bookList", new Book());
 return "create";
     }
