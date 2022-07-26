@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-3">
+  <table class="table table-hover">
+    <thead>
+    <tr style="background-color: #f4623a" class="text-light">
+      <th>ID</th>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Status</th>
+      <th>Borrow</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item,loop : ${detailBooks}">
+      <td th:text="${item.id}"></td>
+      <td th:text="${item.book.name}"></td>
+      <td th:text="${item.bookCode}"></td>
+      <td th:if="${item.status == true}">
+        <span>Used</span>
+      </td>
+      <td th:if="${item.status == false}">
+        <span>Ready</span>
+      </td>
+      <td>
+        <!-- Button trigger modal -->
+        <span th:if="${item.status == true}">
+                    <button type="button" class="btn btn-outline-secondary disabled text-decoration-line-through">
+                        Borrow
+                    </button>
+                </span>
+        <span th:if="${item.status == false}">
+                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                            th:data-bs-target="'#staticBackdrop' + ${item.id}">
+                        Borrow
+                    </button>
+                </span>
+
+        <!-- Modal -->
+        <div class="modal fade" th:id="staticBackdrop + ${item.id}" data-bs-backdrop="static"
+             data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+             aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Borrow Book</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Do you want borrow book <span th:text="${item.book.name}"></span> with code = <span
+                      th:text="${item.bookCode}"></span> ?
+              </div>
+              <div class="modal-footer">
+                <a th:href="@{/borrow(id=${item.id})}" class="btn btn-outline-success">Access</a>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</html>

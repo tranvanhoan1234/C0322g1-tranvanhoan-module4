@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<thead>
+<a th:href="@{/create}">new create</a>
+<table class="table">
+<tr style="background-color: #f4623a" class="text-light">
+    <th>ID</th>
+    <th>Name</th>
+    <th>tac giả</th>
+    <th>Quantity</th>
+    <th>Status</th>
+    <th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="item,loop : ${bookList}">
+    <td th:text="${item.id}"></td>
+    <td th:text="${item.name}"></td>
+    <td th:text="${item.author}"></td>
+    <td th:text="${item.quantity}"></td>
+
+<td>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" th:data-bs-target="'#staticBackdrop' + ${item.id}">
+        Detail
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" th:id="staticBackdrop + ${item.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Borrow Book</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card" style="width: 100%;">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" th:text="'ID: ' + ${item.id}"></li>
+                            <li class="list-group-item" th:text="'Name: ' + ${item.name}"></li>
+                            <li class="list-group-item" th:text="'Author: ' + ${item.author}"></li>
+                            <li class="list-group-item" th:text="'Quantity: ' + ${item.quantity}"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a th:href="@{/show/detail(id=${item.id})}" class="btn btn-primary">Borrow</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </td>
+</tr>
+</tbody>
+</tr>
+</tbody>
+</table>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</html>

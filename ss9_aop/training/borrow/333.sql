@@ -1,0 +1,1 @@
+SELECT * FROM books.detail_book;
