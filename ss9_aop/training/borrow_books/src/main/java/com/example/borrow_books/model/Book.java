@@ -1,29 +1,32 @@
 package com.example.borrow_books.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Book {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String nameBook;
-    private Integer amount;
-    private byte status;
-    @OneToMany(mappedBy = "bookList")
-    private List<GhostBook> backBook;
+
+    private String name;
+
+    private String author;
+
+    private Integer quantity;
+
+    @OneToMany(mappedBy = "book")
+    private List<DetailBook> detailBook;
 
     public Book() {
     }
 
-    public Book(Integer id, String nameBook, Integer amount, byte status, List<GhostBook> backBook) {
+    public Book(Integer id, String name, String author, Integer quantity, List<DetailBook> detailBook) {
         this.id = id;
-        this.nameBook = nameBook;
-        this.amount = amount;
-        this.status = status;
-        this.backBook = backBook;
+        this.name = name;
+        this.author = author;
+        this.quantity = quantity;
+        this.detailBook = detailBook;
     }
 
     public Integer getId() {
@@ -34,35 +37,35 @@ public class Book {
         this.id = id;
     }
 
-    public String getNameBook() {
-        return nameBook;
+    public String getName() {
+        return name;
     }
 
-    public void setNameBook(String nameBook) {
-        this.nameBook = nameBook;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Integer getAmount() {
-        return amount;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAmount(Integer amount) {
-        this.amount = amount;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public byte getStatus() {
-        return status;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setStatus(byte status) {
-        this.status = status;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
-    public List<GhostBook> getBackBook() {
-        return backBook;
+    public List<DetailBook> getDetailBook() {
+        return detailBook;
     }
 
-    public void setBackBook(List<GhostBook> backBook) {
-        this.backBook = backBook;
+    public void setDetailBook(List<DetailBook> detailBook) {
+        this.detailBook = detailBook;
     }
 }
