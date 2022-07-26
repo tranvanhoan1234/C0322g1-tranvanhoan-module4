@@ -1,0 +1,1 @@
+SELECT * FROM case_study_module4.customer;

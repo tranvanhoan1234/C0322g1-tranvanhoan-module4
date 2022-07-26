@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-primary bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand"><span style="color: lightcyan">Employe</span></a>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <table class="table table-hover text-center  ">
+        <thead>
+        <tr class="tr-light bg-light">
+            <th>id</th>
+            <th>name</th>
+            <th>birthday</th>
+            <th>salary</th>
+            <th>email</th>
+            <th>address</th>
+            <th>division</th>
+            <th>position</th>
+            <th>education</th>
+            <th>status</th>
+            <th>delete</th>
+            <th>edit</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr th:each=" item,loop : ${employee}">
+            <td th:text="${loop.count}"></td>
+            <td th:text="${item.nameEmployee}"></td>
+            <td th:text="${item.birthdayEmployee}"></td>
+            <td th:text="${item.salary}"></td>
+            <td th:text=" ${item.email}"></td>
+            <td th:text=" ${item.address}"></td>
+            <td th:text=" ${item.division.nameDivision}"></td>
+            <td th:text=" ${item.position.namePosition}"></td>
+            <td th:text=" ${item.educationDegree.nameEducation}"></td>
+            <td th:text=" ${item.status}"></td>
+        </tbody>
+        </tr>
+    </table>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</html>
