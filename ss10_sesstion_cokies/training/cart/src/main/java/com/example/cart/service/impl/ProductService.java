@@ -1,7 +1,6 @@
 package com.example.cart.service.impl;
 
 import com.example.cart.model.Product;
-import com.example.cart.model.ProductDto;
 import com.example.cart.repository.IProductRepository;
 import com.example.cart.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;

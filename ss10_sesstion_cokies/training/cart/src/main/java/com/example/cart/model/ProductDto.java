@@ -9,8 +9,6 @@ public class ProductDto implements Validator {
     private String price;
     private String description;
     private Integer quantity;
-
-
     public ProductDto() {
     }
 

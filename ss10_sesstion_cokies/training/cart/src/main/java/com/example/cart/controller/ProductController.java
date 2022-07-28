@@ -50,7 +50,6 @@ public class ProductController {
         modelAndView.addObject("products", iProductService.findAll());
         return modelAndView;
     }
-
     //    Phương thương addToCart được sử dụng để thêm sản phẩm vào giỏ hàng trong đó action được s
 //    ử dụng để chuyển hướng tới giao diện hiển thị tất cả các sản phẩm đang có trong giỏ hàng nếu
 //    action = “show” và ngược lại sẽ hiển thị tất cả sản phẩm của shop.
