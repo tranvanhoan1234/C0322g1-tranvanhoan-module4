@@ -18,8 +18,13 @@
         </div>
     </nav>
     <h1 style="color: cornflowerblue;text-align: center "> danh sách bày bán pika chu </h1>
-    <div class="container" >
-        <div class="row"  th:each="item, loop : ${products}">
+    <div class="container-fluid">
+        <li class="nav-item">
+            <a class="btn btn-primary" th:href="@{/create}">Create</a>
+        </li>
+    </div>
+    <div class="container">
+        <div class="row" th:each="item, loop : ${products}">
             <div class="col-lg-3">
                 <div class="card">
                     <img style="height: 300px"
@@ -28,14 +33,15 @@
                     <div class="card-body" style="height: 278px">
                         <h5 class="card-title">Card title</h5>
 
-                        <p class="card-text" th:text="${#strings.replace(#numbers.formatCurrency(item.price), '.00', '')}"></p>
+                        <p class="card-text"
+                           th:text="${#strings.replace(#numbers.formatCurrency(item.price), '.00', '')}"></p>
                         <a class="btn btn-primary" th:href="@{add/__${item.id}__(action='action')}">go cart</a>
                         <a class="btn btn-primary" th:href="@{add/__${item.id}__(action='show')}">detail</a>
 
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3" >
+            <div class="col-lg-3">
                 <div class="card">
                     <img style="height: 300px"
                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsab9NSyjg1bqwX1QAc6KocGjbEeqcyMyQyA&usqp=CAU"
