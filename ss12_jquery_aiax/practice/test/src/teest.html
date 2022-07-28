@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>aaaaa</p>
+<p class="test">aaaaa</p>
+<button>
+    a
+</button>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+var ajaxRequest;
+function ajaxFunction(){
+    try {
+        ajaxRequest=new XMLHttpRequest();
+    }catch (e){
+        try {
+            ajaxRequest=new ActiveXObject("Mis");
+        }catch (e){
+            alert("you browser broke")
+            return false;
+        }
+    }
+}
+// Đối tượng XMLHttpRequest được cấu hình
+function validate(){
+    ajaxFunction();
+    ajaxRequest.onreadystatechange=processRequest;
+    if (!target)target=document.getElementById("used id");
+    var url="validate?id"+escape(target.value);
+    ajaxRequest.open("GET",url,true);
+    ajaxRequest.send(null);
+}
+
+</script>
+</html>
