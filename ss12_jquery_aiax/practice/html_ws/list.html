@@ -1,10 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-$END$
+<h1>blog List</h1>
+
+<table class="table">
+    <form class="d-flex">
+        <input id="#inputSearch" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
+    <thead>
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>author</td>
+    </tr>
+    </thead>
+
+</table>
+<div class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <tr>
+                    <td>Producer:</td>
+                    <td><input type="text" id="name" placeholder="producer"></td>
+                </tr>
+                <tr>
+                    <td>Model:</td>
+                    <td><input type="text" id="author" placeholder="model"></td>
+                </tr>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<ul class="pagination" th:if="${blogs.totalPages > 0}">
+    <li class="page-item">
+        <a class="page-link" th:if="${blogs.hasPrevious()}"
+           th:href="@{'/blog/home'(page=${blogs.number - 1}, searchParam=${searchValue})}">
+            Previous
+        </a>
+    </li>
+    <div th:each="item, loop : ${#numbers.sequence(1, blogs.totalPages )}">
+        <div th:if="${(blogs.number + 1) == item}">
+            <li class="page-item active">
+                <a class="page-link" href="#" th:text="${item}"
+                   th:href="@{/blog/home(page=(${item}-1), searchParam=${searchValue})}"></a>
+            </li>
+        </div>
+        <div th:unless="${((blogs.number + 1) == item)}">
+            <li class="page-item">
+                <a class="page-link" href="#" th:text="${item}"
+                   th:href="@{/blog/home(page=(${item}-1), searchParam=${searchValue} )}"></a>
+            </li>
+        </div>
+    </div>
+    <li class="page-item">
+        <a class="page-link" th:if="${blogs.hasNext()}"
+           th:href="@{'/blog/home'(page=${blogs.number + 1}, searchParam=${searchValue})}">
+            Next
+        </a>
+    </li>
+</ul>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $.ajax({
+            url: "http://localhost:8080/blog/api/v3/list",
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                let str = [];
+                for (let i = 0; i < data.length; i++) {
+                    str.push("<tr>");
+                    str.push("<td>" + data[i].id + "</td>");
+                    str.push("<td>" + data[i].name + "</td>");
+                    str.push("<td>" + data[i].author + "</td>");
+                    str.push("</tr>");
+                }
+                $("table").append((str.join("")));
+            }
+
+        })
+    })
+    $("#inputSearch").keyup(function () {
+        let value = (this).val();
+        $("table").empty()
+        $ajax({
+            url: "http://localhost:8080/blog/api/v3/blog/{id}" + value,
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                let str = [];
+                for (let i = 0; i < data.length; i++) {
+                    str.push("<tr>");
+                    str.push("<td>" + data[i].id + "</td>");
+                    str.push("<td>" + data[i].name + "</td>");
+                    str.push("<td>" + data[i].author + "</td>");
+                    str.push("</tr>");
+                }
+                $("table").append((str.join("")));
+            }
+        })
+
+    })
+
+</script>
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </html>
