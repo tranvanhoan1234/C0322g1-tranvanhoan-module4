@@ -8,6 +8,9 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript">
 
+
+        $("#tableBody").load(successHandler());
+
         function addNewSmartPhone() {
             //lay du lieu
             let producer = $('#producer').val();
@@ -27,7 +30,7 @@
                 type: "POST",
                 data: JSON.stringify(newSmartphone),
                 //tên API
-                url: "/http://localhost:8080/smartPhones/api/v1",
+                url: "http://localhost:8080/smartPhones/api/v1",
                 //xử lý khi thành công
                 success: successHandler
 
@@ -40,7 +43,7 @@
             $.ajax({
                 type: "GET",
                 //tên API
-                url: "/http://localhost:8080/smartPhones/api/v1",
+                url: "http://localhost:8080/smartPhones/api/v1",
                 //xử lý khi thành công
                 success: function (data) {
                     // hien thi danh sach o day
@@ -58,11 +61,6 @@
             });
         }
 
-        function getSmartphone(smartphone) {
-            return `<tr><td >${smartphone.producer}</td><td >${smartphone.model}</td><td >${smartphone.price}</td>` +
-                `<td><a class="deleteSmartphone" href="${smartphone.id}">Delete</a></td></tr>`;
-        }
-
         $(document).ready(function () {
             //sư kiện nào thực hiện Ajax
             $('.deleteSmartphone').click(function (event) {
@@ -73,7 +71,7 @@
                 $.ajax({
                     type: "DELETE",
                     //tên API
-                    url: `/smartphones/delete/${smartphoneId}`,
+                    url: `/smartPhones/api/v1/delete/${smartphoneId}`,
                     //xử lý khi thành công
                     success: function (data) {
                         a.parent().parent().remove();
@@ -84,45 +82,83 @@
                 event.preventDefault();
             });
         })
+
+        function getSmartphone(smartphone) {
+            return `<tr>
+<td>${smartphone.producer}</td>
+<td>${smartphone.model}</td>
+<td>${smartphone.price}</td>
+<td><a onclick="deleteFunction(${smartphone.id})">Delete</a></td>
+<td><a onclick="updateFunction(${smartphone.id})">update</a></td>
+            </tr>`
+        }
+
+        function getSmartphoneEdit(smartphone) {
+            return `<tr><td><input value='${smartphone.producer}' id='producerEdit'></td></tr>
+            <tr><td><input value='${smartphone.model}' id='modelEdit'></td></tr>
+            <tr><td><input value='${smartphone.price}' id='priceEdit'></td></tr>
+            <tr><td><button onclick="update(${smartphone.id})">Update</button>
+            <button id="hide" onclick="hide()" >hide</button>
+            </td></tr>`;
+
+            function hide() {
+                $('#edit').hide();
+            }
+
+            function update(id) {
+                let producer = $('#producerEdit').val();
+                let model = $('#modelEdit').val();
+                let price = $('#priceEdit').val();
+                let editSmartphone = {
+                    id: id,
+                    producer: producer,
+                    model: model,
+                    price: price
+                };
+                // goi ajax
+                $.ajax({
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    type: "POST", //GET, DELETE, PUT...
+                    url: `http://localhost:8080/smartphone/edit`,
+                    data: JSON.stringify(editSmartphone),
+                    success: successHandler
+                });
+            }
+        }
     </script>
 </head>
 <body>
-<form id="add-smartphone">
-    <table class="table">
-        <tr>
-            <td>Producer:</td>
-            <td><input type="text" id="producer" placeholder="producer"></td>
-        </tr>
-        <tr>
-            <td>Model:</td>
-            <td><input type="text" id="model" placeholder="model"></td>
-        </tr>
-        <tr>
-            <td>Price:</td>
-            <td><input type="text" id="price" placeholder="price"></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><input type="submit" value="Add" onclick="addNewSmartPhone()"></td>
-        </tr>
-    </table>
-</form>
-<h1>Smartphone List</h1>
-<table id="smartphoneList" class="table">
+<table>
     <tr>
-        <td>Producer</td>
-        <td>Model</td>
-        <td>Price</td>
-        <td>Delete</td>
+        <td>Producer:</td>
+        <td><input type="text" id="producer" placeholder="producer"></td>
     </tr>
-    <th:block th:each="smartphone: ${smartphones}">
-        <tr>
-            <td th:text="${smartphone.producer}"></td>
-            <td th:text="${smartphone.model}"></td>
-            <td th:text="${smartphone.price}"></td>
-            <td><a class="deleteSmartphone" th:href="${smartphone.getId()}">Delete</a></td>
-        </tr>
-    </th:block>
+    <tr>
+        <td>Model:</td>
+        <td><input type="text" id="model" placeholder="model"></td>
+    </tr>
+    <tr>
+        <td>Price:</td>
+        <td><input type="text" id="price" placeholder="price"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <button onclick="addNewSmartPhone()">Submit</button>
+        </td>
+    </tr>
+</table>
+
+<h1>Smartphone List</h1>
+<table class="table" id="smartphoneList" border="1">
+
+    <tbody id="tableBody">
+
+    </tbody>
+
 </table>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

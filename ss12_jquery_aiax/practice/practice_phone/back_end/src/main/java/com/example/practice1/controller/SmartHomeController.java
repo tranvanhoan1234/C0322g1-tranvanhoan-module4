@@ -44,14 +44,19 @@ public class SmartHomeController {
         return new ResponseEntity<>(smartPhoneOptional.get(), HttpStatus.NO_CONTENT);
     }
 
-    @PatchMapping("/blog/edit")
-    public ResponseEntity<SmartPhone> edit(@RequestBody SmartPhone smartPhone, @PathVariable Long id) {
-        Optional<SmartPhone> smartPhoneOptional = iSmartphoneService.findById(id);
-        if (!smartPhoneOptional.isPresent()) {
+    @GetMapping("/edit/{id}")
+    public ResponseEntity<Optional<SmartPhone>> getPhone(@PathVariable Long id) {
+        Optional<SmartPhone> smartphoneOptional = iSmartphoneService.findById(id);
+        if (!smartphoneOptional.isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        iSmartphoneService.edit(smartPhone);
-        return new ResponseEntity<>(smartPhoneOptional.get(), HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(smartphoneOptional, HttpStatus.OK);
+    }
+
+    @PostMapping("/edit")
+    public ResponseEntity<Iterable<SmartPhone>> updateSmartphone(@RequestBody SmartPhone smartphone) {
+        iSmartphoneService.save(smartphone);
+        return new ResponseEntity<>(iSmartphoneService.findAll(), HttpStatus.NO_CONTENT);
     }
 
 }
