@@ -1,0 +1,1 @@
+roleSELECT * FROM blog_category.user;

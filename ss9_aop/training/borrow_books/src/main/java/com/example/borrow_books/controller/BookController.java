@@ -69,4 +69,5 @@ public class BookController {
         this.detailBookService.returnBook(bookCode);
         return "redirect:/";
     }
+
 }
