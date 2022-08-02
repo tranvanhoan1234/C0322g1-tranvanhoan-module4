@@ -14,9 +14,11 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
-    @Query(value = "select * from customer where `name` like :searchName", nativeQuery = true,
+    @Query(value =
+            "select * from customer where status=0 and `name` like :searchName"
+           , nativeQuery = true,
             countQuery = "select count(*) from (select * from customer where `name` like :searchName) customer_type ")
-    Page<Customer> findAll(@Param("searchName")String searchName,Pageable pageable);
+    Page<Customer> findAll(@Param("searchName") String searchName, Pageable pageable);
 
     @Modifying
     @Query(value = "update customer set status = 1 where id = :id", nativeQuery = true)

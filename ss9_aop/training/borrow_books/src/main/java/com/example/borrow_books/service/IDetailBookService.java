@@ -10,5 +10,7 @@ public interface IDetailBookService {
     void setStatus(Integer id);
 
     void returnBook(Integer bookCode) throws Exception;
+    void repay(Integer code);
 
+    List<DetailBook> findByCode(Integer code);
 }

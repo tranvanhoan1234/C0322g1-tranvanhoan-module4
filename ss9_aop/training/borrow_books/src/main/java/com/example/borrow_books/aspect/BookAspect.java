@@ -1,28 +1,46 @@
 package com.example.borrow_books.aspect;
-import com.example.borrow_books.service.ITrafficService;
-import org.aspectj.lang.JoinPoint;
+
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDateTime;
 
 @Component
 @Aspect
 public class BookAspect {
-    @Autowired
-    private ITrafficService trafficService;
-
-    @AfterReturning(pointcut = " execution(public * com.example.borrow_books.controller.BookController.*(..)) ")
-    public void logHistory(JoinPoint joinPoint) {
-        String name = joinPoint.getSignature().getName();
-        System.out.println("The " + name + " method just worked");
+    int count=0;
+    @Pointcut("execution(* com.example.borrow_books.controller.BookController.borrowBook(..))")
+    public void userBorrowPointCut() {
     }
 
-    @After(" execution(public * com.example.borrow_books.controller.BookController.goHome(..)), && args(showDetail(..)) ")
-    public void increaseTraffic(JoinPoint joinPoint) {
-        trafficService.increase();
+    @AfterReturning("userBorrowPointCut()")
+    public void userBorrowLog() {
+        System.err.println("1 người dùng mượn sách thành công, lúc " + LocalDateTime.now());
     }
+
+    @Pointcut("execution(* com.example.borrow_books.controller.BookController.returnBook())..))")
+    public void payBookPointCut() {
+    }
+
+    @AfterReturning("payBookPointCut()")
+    public void payBookLog() {
+        System.err.println("1 người dùng trả sách thành công, lúc " + LocalDateTime.now());
+    }
+
+    @Pointcut("within(com.example.borrow_books.controller.*)")
+    public void allMethodPointCut() {
+    }
+
+    @After("allMethodPointCut()")
+    public void writeAllAction() {
+        count++;
+        System.out.println("Tu lúc: " + LocalDateTime.now() + ", tất cả: " + count + " thao tác vào thư viện");
+    }
+
 
 
 }

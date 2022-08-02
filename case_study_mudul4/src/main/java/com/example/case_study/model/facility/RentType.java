@@ -1,5 +1,7 @@
 package com.example.case_study.model.facility;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -9,16 +11,17 @@ import java.util.List;
 public class RentType {
     @Id
     private Integer id;
-    private String name;
+    private String nameRentType;
     @OneToMany(mappedBy = "rentType")
-    private List<Facility>rentTypes;
+    @JsonBackReference
+    private List<Facility> rentTypes;
 
     public RentType() {
     }
 
-    public RentType(Integer id, String name, List<Facility> rentTypes) {
+    public RentType(Integer id, String nameRentType, List<Facility> rentTypes) {
         this.id = id;
-        this.name = name;
+        this.nameRentType = nameRentType;
         this.rentTypes = rentTypes;
     }
 
@@ -30,12 +33,12 @@ public class RentType {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNameRentType() {
+        return nameRentType;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameRentType(String nameRentType) {
+        this.nameRentType = nameRentType;
     }
 
     public List<Facility> getRentTypes() {

@@ -1,5 +1,7 @@
 package com.example.case_study.model.facility;
 
+import com.fasterxml.jackson.annotation.JacksonAnnotation;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.w3c.dom.stylesheets.LinkStyle;
 
 import javax.persistence.Entity;
@@ -11,16 +13,17 @@ import java.util.List;
 public class FacilityType {
     @Id
     private Integer id;
-    private String name;
+    private String nameFacilityType;
     @OneToMany(mappedBy = "facilityType")
+    @JsonBackReference
     private List<Facility> facilityList;
 
     public FacilityType() {
     }
 
-    public FacilityType(Integer id, String name, List<Facility> facilityList) {
+    public FacilityType(Integer id, String nameFacilityType, List<Facility> facilityList) {
         this.id = id;
-        this.name = name;
+        this.nameFacilityType = nameFacilityType;
         this.facilityList = facilityList;
     }
 
@@ -32,12 +35,12 @@ public class FacilityType {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNameFacilityType() {
+        return nameFacilityType;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameFacilityType(String nameFacilityType) {
+        this.nameFacilityType = nameFacilityType;
     }
 
     public List<Facility> getFacilityList() {

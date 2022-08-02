@@ -7,6 +7,7 @@ import com.example.borrow_books.service.IDetailBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -36,6 +37,16 @@ public class DetailBookService implements IDetailBookService {
         } else {
             throw new Exception();
         }
+    }
+
+    @Override
+    public List<DetailBook> findByCode(Integer code) {
+        return iDetailBookRepository.findAllById(Collections.singleton(code));
+    }
+
+    @Override
+    public void repay(Integer code) {
+
     }
 
     private boolean checkBookCodeExists(Integer bookCode, List<DetailBook> detailBooks) {

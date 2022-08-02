@@ -44,12 +44,6 @@
                 <td th:text="${blog.author}"></td>
                 <td th:text="${blog.category.nameCategory}"></td>
 
-                <!--               <td><label class="form-label" >category</label>-->
-                <!--                <select th:field="*{blog.category}">-->
-                <!--                    <option th:each="item : ${categoryList}" th:value="${item.idCategory}" th:text="${item.nameCategory}"></option>-->
-                <!--                </select>-->
-                <!--               </td>-->
-
                 <td>
                     <a th:href="@{/blog/edit(id=${blog.getId()})}" class="btn btn-outline-warning">edit</a>
                 </td>

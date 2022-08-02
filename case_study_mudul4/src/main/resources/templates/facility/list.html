@@ -10,9 +10,20 @@
 <div class="container-fluid">
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <a class="btn btn-primary" th:href="@{/customer/create}">new Create</a>
-            <form class="d-flex" th:action="@{/customer}">
-                <input class="form-control me-2" name="name"  type="search" placeholder="Search" aria-label="Search">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                   create
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="btn btn-primary" th:href="@{facility/create}">facility</a></li>
+                    <li><a class="dropdown-item" href="#">hose</a></li>
+                    <li><a class="dropdown-item" href="#">vila</a></li>
+                    <li><a class="dropdown-item" href="#">room</a></li>
+                </ul>
+            </div>
+            <form class="d-flex" th:action="@{/facility}">
+                <input class="form-control me-2" name="name" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
@@ -20,44 +31,48 @@
     <div class="container-fluid">
         <table class="table table-hover text-center">
             <thead>
+
             <tr>
                 <th>id</th>
                 <th>name</th>
-                <th>address</th>
-                <th>birthday</th>
-                <th>email</th>
-                <th>gender</th>
-                <th>idCard</th>
-                <th>phoneNumber</th>
-                <th>Customer Type</th>
+                <th>area</th>
+                <th>cost</th>
+                <th>maxPeople</th>
+                <th>sRoom</th>
+                <th>poolA</th>
+                <th>oAmenities</th>
+                <th>nFloOrs</th>
+                <th>rTypeName</th>
+                <th>fTypeName</th>
+                <th>facilityFree</th>
                 <th>delete</th>
                 <th>edit</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each=" item,loop : ${customers}">
+            <tr th:each=" item,loop : ${facility}">
                 <td th:text="${loop.count}"></td>
-                <td th:text="${item.name}"></td>
-                <td th:text="${item.address}"></td>
-                <td th:text="${item.birthday}"></td>
-                <td th:text="${item.email}"></td>
-                <div th:switch=" ${item.gender}">
-                    <td th:case="0">Nữ</td>
-                    <td th:case="1">nam</td>
-                    <td th:case="2">tai</td>
-                </div>
-                <td th:text="${item.idCard}"></td>
-                <td th:text=" ${item.phoneNumber}"></td>
-                <td th:text=" ${item.customerTypes.getNameType()}"></td>
+                <td th:text="${item.nameFacility}"></td>
+                <td th:text="${item.area}"></td>
+                <td th:text="${item.cost}"></td>
+                <td th:text="${item.maxPeople}"></td>
+                <td th:text="${item.sRoom}"></td>
+                <td th:text="${item.poolA}"></td>
+                <td th:text="${item.oAmenities}"></td>
+                <td th:text="${item.nFloOrs}"></td>
+                <td th:text="${item.facilityType.nameFacilityType}"></td>
+
+                <td th:text="${item.rentType.nameRentType}"></td>
+
+                <td th:text="${item.facilityFree}"></td>
                 <td hidden th:text=" ${item.status}"></td>
                 <td>
-                    <!-- Button trigger modal -->
+                    <!--                     Button trigger modal-->
                     <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
                             th:data-bs-target="'#staticBackdrop' + ${item.id}">
                         Delete
                     </button>
 
-                    <!-- Modal -->
                     <div class="modal fade" th:id="staticBackdrop + ${item.id}" data-bs-backdrop="static"
                          data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                          aria-hidden="true">
@@ -69,11 +84,12 @@
                                             aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    Do you want delete <span class="text-info" th:text="${item.name}"></span> with id =
+                                    Do you want delete <span class="text-info" th:text="${item.nameFacility}"></span>
+                                    with id =
                                     <span class="text-info" th:text="${item.id}"></span> ?
                                 </div>
                                 <div class="modal-footer">
-                                    <a th:href="@{/delete/{id}(id=${item.id})}"
+                                    <a th:href="@{facility/delete/{id}(id=${item.id})}"
                                        class="btn btn-outline-primary">delete</a>
                                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                         Close
@@ -84,33 +100,34 @@
                     </div>
                 </td>
                 <td>
-                    <a th:href="@{/edit/{id}(id=${item.id})}" class="btn btn-outline-warning">Edot</a>
+                    <a th:href="@{/facility/edit/{id}(id=${item.id})}" class="btn btn-outline-warning">Edit</a>
                 </td>
             </tr>
             </tbody>
         </table>
 
     </div>
+    <!--    modal phân trang-->
     <div class="container mt-3">
-        <ul class="pagination float-end" th:if="${customers.totalPages > 0}">
-            <li class="page-item" th:if="${customers.hasPrevious()}">
-                <a class="page-link" th:href="@{/customer(page=${customers.number - 1}, search = ${searchName})}">Previous</a>
+        <ul class="pagination float-end" th:if="${facility.totalPages > 0}">
+            <li class="page-item" th:if="${facility.hasPrevious()}">
+                <a class="page-link" th:href="@{/facility(page=${facility.number - 1}, search = ${searchName})}">Previous</a>
             </li>
-            <div th:each="item, loop : ${#numbers.sequence(1, customers.totalPages )}">
-                <div th:if="${customers.number + 1 == item}">
+            <div th:each="item, loop : ${#numbers.sequence(1, facility.totalPages )}">
+                <div th:if="${facility.number + 1 == item}">
                     <li class="page-item active"><a class="page-link"
-                                                    th:href="@{/customer(page=${item - 1}, search = ${searchName})}"
+                                                    th:href="@{/facility(page=${item - 1}, search = ${searchName})}"
                                                     th:text="${item}"></a></li>
                 </div>
-                <div th:unless="${customers.number + 1 == item}">
+                <div th:unless="${facility.number + 1 == item}">
                     <li class="page-item"><a class="page-link"
-                                             th:href="@{/customer(page=${item - 1}, search = ${searchName})}"
+                                             th:href="@{/facility(page=${item - 1}, search = ${searchName})}"
                                              th:text="${item}"></a></li>
                 </div>
             </div>
-            <li class="page-item" th:if="${customers.hasNext()}">
+            <li class="page-item" th:if="${facility.hasNext()}">
                 <a class="page-link"
-                   th:href="@{/customer(page=${customers.number + 1}, search = ${searchName})}">Next</a>
+                   th:href="@{/facility(page=${facility.number + 1}, search = ${searchName})}">Next</a>
             </li>
         </ul>
     </div>

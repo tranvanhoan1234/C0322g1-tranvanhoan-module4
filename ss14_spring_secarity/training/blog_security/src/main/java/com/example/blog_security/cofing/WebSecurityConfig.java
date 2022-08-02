@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.InMemoryTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 @Configuration
 @EnableWebSecurity
@@ -27,16 +29,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                    .authorizeRequests()
-                    .antMatchers("/").permitAll()
+    protected void configure(HttpSecurity https) throws Exception {
+        https.csrf().disable()
+                .formLogin()
+                .loginPage("/c0322g1")
+                .defaultSuccessUrl("/").permitAll()
                 .and()
-                    .csrf().disable()
-                    .formLogin()
-                    .defaultSuccessUrl("/").permitAll()
-                .and()
-                    .authorizeRequests().anyRequest().authenticated();
+                .authorizeRequests()
+                .antMatchers("/").permitAll()
+                .antMatchers("/", "/view/**").hasRole("USER")
+                .antMatchers("/**").hasRole("ADMIN")
+                .anyRequest().authenticated();
+
+        https.authorizeRequests().and().rememberMe()
+                .tokenRepository(persistentTokenRepository())
+                .tokenValiditySeconds(24 * 60 * 60);
+
+    }
+
+    private PersistentTokenRepository persistentTokenRepository() {
+        InMemoryTokenRepositoryImpl inMemoryTokenRepository = new InMemoryTokenRepositoryImpl();
+        return inMemoryTokenRepository;
     }
 
 }
