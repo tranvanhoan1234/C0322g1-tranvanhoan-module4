@@ -10,17 +10,9 @@
 <div class="container-fluid">
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                   create
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="btn btn-primary" th:href="@{facility/create}">facility</a></li>
-                    <li><a class="dropdown-item" href="#">hose</a></li>
-                    <li><a class="dropdown-item" href="#">vila</a></li>
-                    <li><a class="dropdown-item" href="#">room</a></li>
-                </ul>
+            <div>
+                <a class="btn btn-primary" th:href="@{facility/create}">Create</a>
+
             </div>
             <form class="d-flex" th:action="@{/facility}">
                 <input class="form-control me-2" name="name" type="search" placeholder="Search" aria-label="Search">

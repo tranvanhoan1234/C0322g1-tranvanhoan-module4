@@ -32,12 +32,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity https) throws Exception {
         https.csrf().disable()
                 .formLogin()
-                .loginPage("/c0322g1")
+//                .loginPage()
                 .defaultSuccessUrl("/").permitAll()
                 .and()
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/", "/view/**").hasRole("USER")
+                .antMatchers("/").hasRole("USER")
                 .antMatchers("/**").hasRole("ADMIN")
                 .anyRequest().authenticated();
 

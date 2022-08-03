@@ -1,8 +1,6 @@
 package com.example.case_study.model.facility;
 
-import com.fasterxml.jackson.annotation.JacksonAnnotation;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

@@ -14,14 +14,14 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface IFacilityRepository extends JpaRepository<Facility, Integer> {
     @Modifying
-    @Query(value = "update facility set status = 1 where id = :id", nativeQuery = true)
+    @Query(value = "update facility set `status` = 1 where id = :id", nativeQuery = true)
     void deleteFacility(@Param("id") Integer id);
 
 
     @Query(value =
-            "select * from facility where status=0 and `name` like :searchName"
+            "select * from facility where status=0 and name_facility like :searchName"
             , nativeQuery = true,
-            countQuery = "select count(*) from (select * from facility where `name` like :searchName) facility_name ")
+            countQuery = "select count(*) from (select * from facility where name_facility like :searchName) facility_name ")
     Page<Facility> findAllFacility(String searchName, Pageable pageable);
 
 }

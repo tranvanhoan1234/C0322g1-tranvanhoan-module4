@@ -44,17 +44,8 @@ public class FacilityController {
         return this.iRentTypeService.findAll();
     }
 
-    //    @GetMapping("/customer")
-//    public String goCustomer(@PageableDefault(3) Pageable pageable , Optional<String> name, Model model) {
-//        String searchName = name.orElse("");
-//        Page<Customer> customers = iCustomerService.findAll(searchName,pageable );
-//        model.addAttribute("customers", customers);
-//        model.addAttribute("searchName", searchName);
-//        model.addAttribute("customerTypeList",iCustomerTypeService.findAll());
-//        return "customer/list";
-//    }
     @GetMapping("/facility")
-    public String goFacility(@PageableDefault(5) Pageable pageable, Optional<String> name, Model model) {
+    public String goFacility(@PageableDefault(2) Pageable pageable, Optional<String> name, Model model) {
         String searchName = name.orElse("");
         Page<Facility> facilityPage = iFacilityService.findAll(searchName, pageable);
         System.out.println(facilityPage);
