@@ -10,7 +10,72 @@
 <div class="container-fluid">
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <a class="btn btn-primary" th:href="@{/customer/create}">new Create</a>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              create
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="area1" type="text" placeholder="Enter your area..."
+                                       th:field="*{name}"/>
+                                <label for="area">name</label>
+                            </div>
+                            <!-- cost input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="cost2" type="text" placeholder="Enter your cost..."
+                                       th:field="*{address}"/>
+                                <label for="cost">address</label>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="area3" type="text" placeholder="Enter your area..."
+                                   th:field="*{birthday}"/>
+                            <label for="area">birthday</label>
+                        </div>
+                        <!-- cost input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="cost4" type="text" placeholder="Enter your cost..."
+                                   th:field="*{email}"/>
+                            <label for="cost">email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="area" type="text" placeholder="Enter your area..."
+                                   th:field="*{gender}"/>
+                            <label for="area">gender</label>
+                        </div>
+                        <!-- cost input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="cost" type="text" placeholder="Enter your cost..."
+                                   th:field="*{idCard}"/>
+                            <label for="cost">idCard</label>
+                        </div>  <!-- cost input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="cost" type="text" placeholder="Enter your cost..."
+                                   th:field="*{phoneNumber}"/>
+                            <label for="cost">phoneNumber</label>
+                        </div>  <!-- cost input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="cost" type="text" placeholder="Enter your cost..."
+                                   th:field="*{item.customerTypes.getNameType()}"/>
+                            <label for="cost">NameType</label>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">+</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </td>
             <form class="d-flex" th:action="@{/customer}">
                 <input class="form-control me-2" name="name"  type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
@@ -82,6 +147,73 @@
                             </div>
                         </div>
                     </div>
+                <td>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                       edit
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="area1" type="text" placeholder="Enter your area..."
+                                               th:field="*{name}"/>
+                                        <label for="area">name</label>
+                                    </div>
+                                    <!-- cost input-->
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="cost2" type="text" placeholder="Enter your cost..."
+                                               th:field="*{address}"/>
+                                        <label for="cost">address</label>
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="area3" type="text" placeholder="Enter your area..."
+                                           th:field="*{birthday}"/>
+                                    <label for="area">birthday</label>
+                                </div>
+                                <!-- cost input-->
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="cost4" type="text" placeholder="Enter your cost..."
+                                           th:field="*{email}"/>
+                                    <label for="cost">email</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="area" type="text" placeholder="Enter your area..."
+                                           th:field="*{gender}"/>
+                                    <label for="area">gender</label>
+                                </div>
+                                <!-- cost input-->
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="cost" type="text" placeholder="Enter your cost..."
+                                           th:field="*{idCard}"/>
+                                    <label for="cost">idCard</label>
+                                </div>  <!-- cost input-->
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="cost" type="text" placeholder="Enter your cost..."
+                                           th:field="*{phoneNumber}"/>
+                                    <label for="cost">phoneNumber</label>
+                                </div>  <!-- cost input-->
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="cost" type="text" placeholder="Enter your cost..."
+                                           th:field="*{item.customerTypes.getNameType()}"/>
+                                    <label for="cost">NameType</label>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">+</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
                 </td>
                 <td>
                     <a th:href="@{/edit/{id}(id=${item.id})}" class="btn btn-outline-warning">Edot</a>
