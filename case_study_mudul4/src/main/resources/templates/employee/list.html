@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-    <nav class="navbar navbar-primary bg-primary">
+    <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand"><span style="color: lightcyan">Employe</span></a>
             <form class="d-flex">
@@ -17,7 +17,7 @@
             </form>
         </div>
     </nav>
-    <table class="table table-hover text-center  ">
+    <table class="table table-hover text-center " th:action="employee">
         <thead>
         <tr class="tr-light bg-light">
             <th>id</th>
@@ -47,12 +47,226 @@
             <td th:text=" ${item.position.namePosition}"></td>
             <td th:text=" ${item.educationDegree.nameEducation}"></td>
             <td th:text=" ${item.status}"></td>
-        </tbody>
-        </tr>
+            <td>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                        th:data-bs-target="'#staticBackdrop' + ${item.id}">
+                    Delete
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" th:id="staticBackdrop + ${item.id}" data-bs-backdrop="static"
+                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-danger" id="staticBackdropLabel">FBI warning!!</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Do you want delete <span class="text-info" th:text="${item.nameEmployee}"></span> with
+                                id =
+                                <span class="text-info" th:text="${item.id}"></span> ?
+                            </div>
+                            <div class="modal-footer">
+                                <a th:href="@{/employee/delete/{id}(id=${item.id})}"
+                                   class="btn btn-outline-primary">delete</a>
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <!--            edit modal-->
+            <!--            <td>-->
+            <!--                <button class="btn btn-outline-warning"  data-bs-toggle="modal"-->
+            <!--                        data-bs-target="#exampleModal1" th:text="${item.id}"></button>-->
+            <!--                &lt;!&ndash; Modal &ndash;&gt;-->
+            <!--                <form th:action="@{/employee/edit}" th:object="${employeeCreate}" th:method="post">-->
+            <!--                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"-->
+            <!--                         aria-hidden="true">-->
+            <!--                        <div class="modal-dialog">-->
+            <!--                            <div class="modal-content">-->
+            <!--                                <div class="modal-header">-->
+            <!--                                    <h5 class="modal-title" id="exampleModalLabel1">Modal title</h5>-->
+            <!--                                    <button type="button" class="btn-close" data-bs-dismiss="modal"-->
+            <!--                                            aria-label="Close"></button>-->
+            <!--                                </div>-->
+            <!--                                <div class="modal-body">-->
+            <!--                                    <div class="form-floating mb-3">-->
+            <!--                                        <input class="form-control" id="name1" type="text"-->
+            <!--                                               placeholder="Enter your name..."-->
+            <!--                                               th:field="*{nameEmployee}"/>-->
+            <!--                                        <label for="name">name</label>-->
+            <!--                                    </div>-->
+            <!--                                    &lt;!&ndash; cost input&ndash;&gt;-->
+            <!--                                    <div class="form-floating mb-3">-->
+            <!--                                        <input class="form-control" id="birthdayEmployee1" type="text"-->
+            <!--                                               placeholder="Enter your cost..."-->
+            <!--                                               th:field="*{birthdayEmployee}"/>-->
+            <!--                                        <label for="name">birthdayEmployee</label>-->
+            <!--                                    </div>-->
+            <!--                                    <div class="form-floating mb-3">-->
+            <!--                                        <input class="form-control" id="salary1" type="text"-->
+            <!--                                               placeholder="Enter your salary..."-->
+            <!--                                               th:field="*{salary}"/>-->
+            <!--                                        <label for="name">salary</label>-->
+            <!--                                    </div>-->
+            <!--                                    &lt;!&ndash;  input&ndash;&gt;-->
+            <!--                                    <div class="form-floating mb-3">-->
+            <!--                                        <input class="form-control" id="email1" type="text"-->
+            <!--                                               placeholder="Enter your email..."-->
+            <!--                                               th:field="*{email}"/>-->
+            <!--                                        <label for="name">email</label>-->
+            <!--                                    </div>-->
+            <!--                                    <div class="form-floating mb-3">-->
+            <!--                                        <input class="form-control" id="address1" type="text"-->
+            <!--                                               placeholder="Enter your address..."-->
+            <!--                                               th:field="*{address}"/>-->
+            <!--                                        <label for="address">Area</label>-->
+            <!--                                    </div>-->
+            <!--                                    &lt;!&ndash;  input&ndash;&gt;-->
+            <!--                                    <div>-->
+            <!--                                        <label class="form-label">educationDegree</label>-->
+            <!--                                        <select th:field="*{educationDegree}">-->
+            <!--                                            <option th:each="item : ${education}" th:value="${item.idEducation}"-->
+            <!--                                                    th:text="${item.nameEducation}"></option>-->
+            <!--                                        </select>-->
+            <!--                                    </div>-->
+            <!--                                    <br>-->
+            <!--                                    <div>-->
+            <!--                                        <label class="form-label">division</label>-->
+            <!--                                        <select th:field="*{division}">-->
+            <!--                                            <option th:each="item : ${division}" th:value="${item.idDivision}"-->
+            <!--                                                    th:text="${item.nameDivision}"></option>-->
+            <!--                                        </select>-->
+
+            <!--                                    </div>-->
+            <!--                                    <br>-->
+            <!--                                    <div>-->
+            <!--                                        <label class="form-label">position</label>-->
+            <!--                                        <select th:field="*{position}">-->
+            <!--                                            <option th:each="item : ${position}" th:value="${item.idPosition}"-->
+            <!--                                                    th:text="${item.namePosition}"></option>-->
+            <!--                                        </select>-->
+            <!--                                    </div>-->
+            <!--                                    <br>-->
+            <!--                                    <div class="modal-footer">-->
+            <!--                                        <button type="submit" class="btn btn-secondary" th:href="@{employee}"-->
+            <!--                                                data-bs-dismiss="modal">close-->
+            <!--                                        </button>-->
+            <!--                                        <button type="submit" class="btn btn-primary">Save changes</button>-->
+
+            <!--                                    </div>-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </form>-->
+            <!--            </td>-->
+            <!--        </tbody>-->
+            <!--    </table>-->
+            <td>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    create
+                </button>
+                <!-- Modal -->
+                <form th:action="@{/employee/create}" th:object="${employeeCreate}" th:method="post">
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="name" type="text"
+                                               placeholder="Enter your name..."
+                                               th:field="*{nameEmployee}"/>
+                                        <label for="name">name</label>
+                                    </div>
+                                    <!-- cost input-->
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="birthdayEmployee" type="text"
+                                               placeholder="Enter your cost..."
+                                               th:field="*{birthdayEmployee}"/>
+                                        <label for="name">birthdayEmployee</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="salary" type="text"
+                                               placeholder="Enter your salary..."
+                                               th:field="*{salary}"/>
+                                        <label for="name">salary</label>
+                                    </div>
+                                    <!--  input-->
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="email" type="text"
+                                               placeholder="Enter your email..."
+                                               th:field="*{email}"/>
+                                        <label for="name">email</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="address" type="text"
+                                               placeholder="Enter your address..."
+                                               th:field="*{address}"/>
+                                        <label for="address">Area</label>
+                                    </div>
+                                    <!--  input-->
+                                    <div>
+                                        <label class="form-label">educationDegree</label>
+                                        <select th:field="*{educationDegree}">
+                                            <option th:each="item : ${education}" th:value="${item.idEducation}"
+                                                    th:text="${item.nameEducation}"></option>
+                                        </select>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <label class="form-label">division</label>
+                                        <select th:field="*{division}">
+                                            <option th:each="item : ${division}" th:value="${item.idDivision}"
+                                                    th:text="${item.nameDivision}"></option>
+                                        </select>
+
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <label class="form-label">position</label>
+                                        <select th:field="*{position}">
+                                            <option th:each="item : ${position}" th:value="${item.idPosition}"
+                                                    th:text="${item.namePosition}"></option>
+                                        </select>
+                                    </div>
+                                    <br>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-secondary" th:href="@{employee}"
+                                                data-bs-dismiss="modal">close
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">Save changes</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
     </table>
+
+    </td>
+    </tr>
+
 </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+
 </html>

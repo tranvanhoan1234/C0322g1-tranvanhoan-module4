@@ -8,59 +8,128 @@
 </head>
 <body>
 
-<div class="container d-flex flex-column align-items-center">
-    <h2 class="mt-0">edit Facility and!</h2>
-    <div class="dropdown">
-        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-            Choice Facility
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item aFacility"href="Hose">House</a></li>
-            <li><a class="dropdown-item aFacility" href="Room">Room</a></li>
-            <li><a class="dropdown-item aFacility" href="Villa">Villa</a></li>
-        </ul>
+<section>
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+                <h2 class="mt-0">Create Facility!</h2>
+                <div class="dropdown">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        Choice Facility
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item aFacility"href="House">House</a></li>
+                        <li><a class="dropdown-item aFacility" href="Room">Room</a></li>
+                        <li><a class="dropdown-item aFacility" href="Villa">Villa</a></li>
+                    </ul>
 
+                </div>
+                <hr class="divider"/>
+                <p class="text-muted mb-5">Ready to start your next project with us? Send us a messages and we will get
+                    back to you as soon as possible!</p>
+            </div>
+        </div>
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6">
+                <form id="contactForm" method="post" action="/facility/edit" th:object="${facility}">
+                    <!-- name input-->
+                    <div class="form-floating mb-3">
+                        <input hidden class="form-control" id="id" type="text" placeholder="Enter your name..."
+                               th:field="*{id}">
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="name" type="text" placeholder="Enter your name..."
+                               th:field="*{nameFacility}">
+                        <label for="name">Facility name</label>
+                    </div>
+                    <!-- area input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="area" type="text" placeholder="Enter your area..."
+                               th:field="*{area}"/>
+                        <label for="area">Area</label>
+                    </div>
+                    <!-- cost input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="cost" type="text" placeholder="Enter your cost..."
+                               th:field="*{cost}"/>
+                        <label for="cost">Cost</label>
+                    </div>
+                    <!-- maxPeople input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="maxPeople" type="text" placeholder="Enter your max people..."
+                               th:field="*{maxPeople}"/>
+                        <label for="maxPeople">Max people</label>
+                    </div>
+                    <!-- rentType input-->
+                    <div class="form-floating mb-3">
+                        <select class="form-select" aria-label="Default select example"
+                                style="padding-top: 0.625rem ;"
+                                th:field="*{rentType}">
+                            <option value="">Choose rent type</option>
+                            <option th:each="item, loop : ${rentTypeList}" th:text="${item.nameRentType}"
+                                    th:value="${item.id}"></option>
+                        </select>
+                    </div>
+                    <!-- facilityType input-->
+                    <div class="form-floating mb-3">
+                        <select class="form-select" aria-label="Default select example"
+                                style="padding-top: 0.625rem ;"
+                                th:field="*{facilityType}">
+                            <option value="">Choose facility type</option>
+                            <option th:each="item, loop : ${facilityTypeList}" th:text="${item.nameFacilityType}"
+                                    th:value="${item.id}" th:id="${item.nameFacilityType}"></option>
+                        </select>
+                    </div>
+
+                    <div id="tableInputHouse">
+                        <!--standardRoom input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="standardRoom" type="text"
+                                   placeholder="Enter your standard room..." th:field="*{sRoom}"/>
+                            <label for="standardRoom">Standard Room</label>
+                        </div>
+                        <!--descriptionOtherConvenience input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="descriptionOtherConvenience" type="text"
+                                   placeholder="Enter your description other convenience..."
+                                   th:field="*{oAmenities}"/>
+                            <label for="descriptionOtherConvenience">Description Other Convenience</label>
+                        </div>
+                        <!--numberOfFloors input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="numberOfFloors" type="text"
+                                   placeholder="Enter your number of floors..." th:field="*{nFloOrs}"/>
+                            <label for="numberOfFloors">Number Of Floors</label>
+                        </div>
+                    </div>
+                    <div id="tableInputRoom">
+                        <!--facilityFree input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="facilityFree" type="text"
+                                   placeholder="Enter your facility free..." th:field="*{facilityFree}"/>
+                            <label for="facilityFree">Facility Free</label>
+                        </div>
+                    </div>
+                    <div id="tableInputVilla">
+                        <!--poolArea input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="poolArea" type="text"
+                                   placeholder="Enter your pool area..." th:field="*{poolA}"/>
+                            <label for="poolArea">Pool Area</label>
+                        </div>
+                    </div>
+                    <input type="hidden" id="inputFacilityHidden" name="facilityHidden">
+                    <!-- Submit Button-->
+                    <div class="d-grid">
+                        <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
     </div>
-
-    <form th:action="@{/facility/edit}" th:object="${facility}" method="post">
-        <input class="form-control" hidden type="text" th:field="*{id}">
-        <div>
-            <label class="form-label">nameFacility</label>
-            <input class="form-control" type="text" th:field="*{nameFacility}">
-        </div>
-        <div>
-            <label class="form-label">area</label>
-            <input class="form-control" type="text" th:field="*{area}">
-        </div>
-        <div>
-            <label class="form-label">cost</label>
-            <input class="form-control" type="text" th:field="*{cost}">
-        </div>
-        <div>
-            <label class="form-label">maxPeople</label>
-            <input class="form-control" type="text" th:field="*{maxPeople}">
-        </div>
-        <div>
-            <label class="form-label h6">facilityType:</label>
-            <select class="form-select" th:field="*{facilityType}">
-                <option th:each="item : ${facilityTypeList}" th:value="${item.id}"
-                        th:text="${item.nameFacilityType}"></option>
-            </select>
-        </div>
-        <div>
-            <label class="form-label h6">rentType:</label>
-            <select class="form-select" th:field="*{rentType}">
-                <option th:each="item : ${rentTypeList}" th:value="${item.id}" th:text="${item.nameRentType}"></option>
-            </select>
-        </div>
-        <div>
-            <label class="form-label">facilityFree</label>
-            <input class="form-control" type="text" th:field="*{facilityFree}">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <a class="btn btn-primary" href="/">Back</a>
-    </form>
+</section>
 
 </div>
 </body>

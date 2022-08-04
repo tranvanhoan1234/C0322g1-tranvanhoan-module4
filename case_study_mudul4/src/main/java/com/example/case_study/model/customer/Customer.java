@@ -1,9 +1,11 @@
 package com.example.case_study.model.customer;
 
+import com.example.case_study.model.Contract;
 import com.example.case_study.model.employee.User;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -22,6 +24,9 @@ public class Customer {
     @ManyToOne
     @JoinColumn(name = "customer_type_id", referencedColumnName = "id")
     private CustomerType customerTypes;
+    @OneToMany(mappedBy = "customer")
+    private List<Contract> contract;
+
     public Customer() {
     }
 

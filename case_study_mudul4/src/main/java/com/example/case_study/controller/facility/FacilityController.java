@@ -1,6 +1,5 @@
 package com.example.case_study.controller.facility;
 
-import com.example.case_study.model.customer.Customer;
 import com.example.case_study.model.facility.Facility;
 import com.example.case_study.model.facility.FacilityType;
 import com.example.case_study.model.facility.RentType;
@@ -13,19 +12,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @Controller
 @Scope
-
 public class FacilityController {
     @Autowired
     IFacilityService iFacilityService;
@@ -45,12 +39,12 @@ public class FacilityController {
     }
 
     @GetMapping("/facility")
-    public String goFacility(@PageableDefault(2) Pageable pageable, Optional<String> name, Model model) {
+    public String goFacility(@PageableDefault(1) Pageable pageable, Optional<String> name, Model model) {
         String searchName = name.orElse("");
         Page<Facility> facilityPage = iFacilityService.findAll(searchName, pageable);
         System.out.println(facilityPage);
         model.addAttribute("facility", facilityPage);
-        model.addAttribute("searchName", searchName);
+        model.addAttribute("name", searchName);
         return "facility/list";
     }
 

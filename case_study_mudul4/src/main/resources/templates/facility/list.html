@@ -103,23 +103,23 @@
     <div class="container mt-3">
         <ul class="pagination float-end" th:if="${facility.totalPages > 0}">
             <li class="page-item" th:if="${facility.hasPrevious()}">
-                <a class="page-link" th:href="@{/facility(page=${facility.number - 1}, search = ${searchName})}">Previous</a>
+                <a class="page-link" th:href="@{/facility(page=${facility.number - 1}, name = ${name})}">Previous</a>
             </li>
             <div th:each="item, loop : ${#numbers.sequence(1, facility.totalPages )}">
                 <div th:if="${facility.number + 1 == item}">
                     <li class="page-item active"><a class="page-link"
-                                                    th:href="@{/facility(page=${item - 1}, search = ${searchName})}"
+                                                    th:href="@{/facility(page=${item - 1}, name = ${name})}"
                                                     th:text="${item}"></a></li>
                 </div>
                 <div th:unless="${facility.number + 1 == item}">
                     <li class="page-item"><a class="page-link"
-                                             th:href="@{/facility(page=${item - 1}, search = ${searchName})}"
+                                             th:href="@{/facility(page=${item - 1}, name = ${name})}"
                                              th:text="${item}"></a></li>
                 </div>
             </div>
             <li class="page-item" th:if="${facility.hasNext()}">
                 <a class="page-link"
-                   th:href="@{/facility(page=${facility.number + 1}, search = ${searchName})}">Next</a>
+                   th:href="@{/facility(page=${facility.number + 1}, name = ${name})}">Next</a>
             </li>
         </ul>
     </div>
