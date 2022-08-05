@@ -11,7 +11,7 @@
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <a class="btn btn-primary" th:href="@{/customer/create}">new Create</a>
-            <form class="d-flex" th:action="@{/custom   er}">
+            <form class="d-flex" th:action="@{/customer}">
                 <input class="form-control me-2" name="name"  type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
@@ -35,6 +35,7 @@
             </tr>
             </thead>
             <tbody>
+
             <tr th:each=" item,loop : ${customers}">
                 <td th:text="${loop.count}"></td>
                 <td th:text="${item.name}"></td>

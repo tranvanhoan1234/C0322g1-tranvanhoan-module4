@@ -1,36 +1,39 @@
-package com.example.case_study.model.customer;
+package com.example.case_study.dto;
 
-import com.example.case_study.model.contract.Contract;
-
-import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import java.sql.Date;
-import java.util.List;
 
-@Entity
-public class Customer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CustomerDto {
     private Integer id;
+    @NotEmpty
+    @Pattern(regexp = "^([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,5}$", message = "Wrong format")
     private String name;
+    @NotEmpty
+    @Pattern(regexp = "^([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,5}$", message = "Wrong format")
+    @NotEmpty
     private String address;
     private Date birthday;
+    @NotEmpty
     private String email;
+
     private Integer gender;
+
+    @NotEmpty
+    @Pattern(regexp = "^[0-9]{9}")
     private String idCard;
+    @NotEmpty
+    @Pattern(regexp = "^(((\\+|)84)|0)(3|5|7|8|9)+([0-9]{8})$", message = "sai định dạng 9 numbers")
     private String phoneNumber;
-    @Column(columnDefinition = "bit(1) default 0")
     private byte status;
-    @ManyToOne
-    @JoinColumn(name = "customer_type_id", referencedColumnName = "id")
-    private CustomerType customerTypes;
+    @NotEmpty
+    private String customerTypes;
 
-    @OneToMany(mappedBy = "customer")
-    private List<Contract> contracts;
-
-    public Customer() {
+    public CustomerDto() {
     }
 
-    public Customer(Integer id, String name, String address, Date birthday, String email, Integer gender, String idCard, String phoneNumber, byte status, CustomerType customerTypes, List<Contract> contracts) {
+    public CustomerDto(Integer id, String name, String address, Date birthday, String email, Integer gender, String idCard, String phoneNumber, byte status, String customerTypes) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -41,7 +44,6 @@ public class Customer {
         this.phoneNumber = phoneNumber;
         this.status = status;
         this.customerTypes = customerTypes;
-        this.contracts = contracts;
     }
 
     public Integer getId() {
@@ -116,19 +118,11 @@ public class Customer {
         this.status = status;
     }
 
-    public CustomerType getCustomerTypes() {
+    public String getCustomerTypes() {
         return customerTypes;
     }
 
-    public void setCustomerTypes(CustomerType customerTypes) {
+    public void setCustomerTypes(String customerTypes) {
         this.customerTypes = customerTypes;
-    }
-
-    public List<Contract> getContracts() {
-        return contracts;
-    }
-
-    public void setContracts(List<Contract> contracts) {
-        this.contracts = contracts;
     }
 }

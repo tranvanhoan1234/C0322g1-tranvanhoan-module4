@@ -26,6 +26,8 @@
             <th>salary</th>
             <th>email</th>
             <th>address</th>
+            <th>phoneNumber</th>
+            <th>idCard</th>
             <th>division</th>
             <th>position</th>
             <th>education</th>
@@ -36,6 +38,7 @@
 
         </thead>
         <tbody>
+
         <tr th:each=" item,loop : ${employee}">
             <td th:text="${loop.count}"></td>
             <td th:text="${item.nameEmployee}"></td>
@@ -43,6 +46,8 @@
             <td th:text="${item.salary}"></td>
             <td th:text=" ${item.email}"></td>
             <td th:text=" ${item.address}"></td>
+            <td th:text=" ${item.idCard}"></td>
+            <td th:text=" ${item.phoneNumber}"></td>
             <td th:text=" ${item.division.nameDivision}"></td>
             <td th:text=" ${item.position.namePosition}"></td>
             <td th:text=" ${item.educationDegree.nameEducation}"></td>
@@ -217,6 +222,18 @@
                                                placeholder="Enter your address..."
                                                th:field="*{address}"/>
                                         <label for="address">Area</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="phoneNumber" type="text"
+                                               placeholder="Enter your phoneNumber..."
+                                               th:field="*{phoneNumber}"/>
+                                        <label for="phoneNumber">phoneNumber</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="idCard" type="text"
+                                               placeholder="Enter your idCard..."
+                                               th:field="*{idCard}"/>
+                                        <label for="address">idCard</label>
                                     </div>
                                     <!--  input-->
                                     <div>

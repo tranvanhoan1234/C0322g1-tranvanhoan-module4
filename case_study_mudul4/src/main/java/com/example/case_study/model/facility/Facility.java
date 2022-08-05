@@ -1,6 +1,10 @@
 package com.example.case_study.model.facility;
 
+import com.example.case_study.model.contract.Contract;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Facility {
@@ -11,24 +15,28 @@ public class Facility {
     private Integer area;
     private Double cost;
     private Integer maxPeople;
-    private Integer sRoom;
+    private String sRoom;
     private Integer poolA;
-    private Integer oAmenities;
+    private String oAmenities;
     private Integer nFloOrs;
     private String facilityFree;
     @ManyToOne
-    @JoinColumn(name = "rent_type_id",referencedColumnName = "id")
+    @JoinColumn(name = "rent_type_id", referencedColumnName = "id")
     private RentType rentType;
     @ManyToOne
-    @JoinColumn(name = "facility_type_id",referencedColumnName = "id")
+    @JoinColumn(name = "facility_type_id", referencedColumnName = "id")
     private FacilityType facilityType;
+
+    @OneToMany(mappedBy = "facility")
+    @JsonBackReference
+    private List<Contract> contracts;
     @Column(columnDefinition = "bit(1) default 0")
     private byte status;
 
     public Facility() {
     }
 
-    public Facility(Integer id, String nameFacility, Integer area, Double cost, Integer maxPeople, Integer sRoom, Integer poolA, Integer oAmenities, Integer nFloOrs, String facilityFree, RentType rentType, FacilityType facilityType, byte status) {
+    public Facility(Integer id, String nameFacility, Integer area, Double cost, Integer maxPeople, String sRoom, Integer poolA, String oAmenities, Integer nFloOrs, String facilityFree, RentType rentType, FacilityType facilityType, List<Contract> contracts, byte status) {
         this.id = id;
         this.nameFacility = nameFacility;
         this.area = area;
@@ -41,6 +49,7 @@ public class Facility {
         this.facilityFree = facilityFree;
         this.rentType = rentType;
         this.facilityType = facilityType;
+        this.contracts = contracts;
         this.status = status;
     }
 
@@ -84,11 +93,11 @@ public class Facility {
         this.maxPeople = maxPeople;
     }
 
-    public Integer getsRoom() {
+    public String getsRoom() {
         return sRoom;
     }
 
-    public void setsRoom(Integer sRoom) {
+    public void setsRoom(String sRoom) {
         this.sRoom = sRoom;
     }
 
@@ -100,11 +109,11 @@ public class Facility {
         this.poolA = poolA;
     }
 
-    public Integer getoAmenities() {
+    public String getoAmenities() {
         return oAmenities;
     }
 
-    public void setoAmenities(Integer oAmenities) {
+    public void setoAmenities(String oAmenities) {
         this.oAmenities = oAmenities;
     }
 
@@ -138,6 +147,14 @@ public class Facility {
 
     public void setFacilityType(FacilityType facilityType) {
         this.facilityType = facilityType;
+    }
+
+    public List<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(List<Contract> contracts) {
+        this.contracts = contracts;
     }
 
     public byte getStatus() {

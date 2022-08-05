@@ -18,6 +18,10 @@ public class CustomerType {
     public CustomerType() {
     }
 
+    public CustomerType(Integer id) {
+        this.id = id;
+    }
+
     public CustomerType(Integer id, String nameType, List<Customer> customers) {
         this.id = id;
         this.nameType = nameType;

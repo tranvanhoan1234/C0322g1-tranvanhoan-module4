@@ -1,7 +1,11 @@
 package com.example.case_study.model.employee;
 
+import com.example.case_study.model.contract.Contract;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 
 @Entity
@@ -12,8 +16,11 @@ public class Employee {
     private String nameEmployee;
     private Date birthdayEmployee;
     private Double salary;
+    private String idCard;
     private String email;
     private String address;
+    private String phoneNumber;
+
     @Column(columnDefinition = "bit(1) default 0")
     private Byte status;
     @ManyToOne
@@ -25,28 +32,26 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name = "id_education", referencedColumnName = "idEducation")
     private EducationDegree educationDegree;
-    @ManyToOne
-    @JoinColumn(name = "user_name", referencedColumnName = "userName")
-    private User user;
-//    @OneToMany(mappedBy = "employee")
-//    @JsonBackReference
-//    private List<Contract> contractList;
-
+    @OneToMany(mappedBy = "employee")
+    @JsonBackReference
+    private List<Contract> contractList;
     public Employee() {
     }
 
-    public Employee(Integer id, String nameEmployee, Date birthdayEmployee, Double salary, String email, String address, Byte status, Division division, Position position, EducationDegree educationDegree) {
+    public Employee(Integer id, String nameEmployee, Date birthdayEmployee, Double salary, String idCard, String email, String address, String phoneNumber, Byte status, Division division, Position position, EducationDegree educationDegree, List<Contract> contractList) {
         this.id = id;
         this.nameEmployee = nameEmployee;
         this.birthdayEmployee = birthdayEmployee;
         this.salary = salary;
-
+        this.idCard = idCard;
         this.email = email;
         this.address = address;
+        this.phoneNumber = phoneNumber;
         this.status = status;
         this.division = division;
         this.position = position;
         this.educationDegree = educationDegree;
+        this.contractList = contractList;
     }
 
     public Integer getId() {
@@ -81,6 +86,14 @@ public class Employee {
         this.salary = salary;
     }
 
+    public String getIdCard() {
+        return idCard;
+    }
+
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -95,6 +108,14 @@ public class Employee {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public Byte getStatus() {
@@ -127,5 +148,13 @@ public class Employee {
 
     public void setEducationDegree(EducationDegree educationDegree) {
         this.educationDegree = educationDegree;
+    }
+
+    public List<Contract> getContractList() {
+        return contractList;
+    }
+
+    public void setContractList(List<Contract> contractList) {
+        this.contractList = contractList;
     }
 }
