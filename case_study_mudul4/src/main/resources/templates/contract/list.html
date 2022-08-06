@@ -8,6 +8,15 @@
 </head>
 <body>
 <div class="container-fluid">
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="btn btn-primary" th:href="@{/contract/create}">new Create</a>
+            <form class="d-flex" th:action="@{/contract}">
+                <input class="form-control me-2" name="name"  type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
     <table class="table">
         <thead class="table-primary">
         <tr>
@@ -17,6 +26,7 @@
             <th> ngày bắt đầu</th>
             <th> ngày kết thúc</th>
             <th> tiền đặt cọc</th>
+            <th> delete</th>
             <th> tổng tiền</th>
             <th> các dịch vụ đi kèm</th>
         </tr>
@@ -25,10 +35,10 @@
         <tr th:each="item,loop : ${contract}">
             <td th:text="${loop.count}"></td>
             <td th:text="${item.facility.nameFacility}"></td>
+            <td th:text="${item.customer.name}"></td>
             <td th:text="${item.starDate}"></td>
             <td th:text="${item.endDate}"></td>
             <td th:text="${item.deposit}"></td>
-            <td th:text="${item.customer.name}"></td>
 
             <td colspan="2">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -40,28 +50,50 @@
 
                 <!-- Modal -->
 
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                         aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                </div>
-
-                            </div>
-                            <!-- cost input-->
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">+</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                             </div>
                         </div>
+                        <!-- cost input-->
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">+</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
                     </div>
+                </div>
             </td>
         </tbody>
     </table>
+    <div class="container mt-3">
+        <ul class="pagination float-end" th:if="${contract.totalPages > 0}">
+            <li class="page-item" th:if="${contract.hasPrevious()}">
+                <a class="page-link" th:href="@{/contract(page=${contract.number - 1}, name = ${name})}">Previous</a>
+            </li>
+            <div th:each="item, loop : ${#numbers.sequence(1, contract.totalPages )}">
+                <div th:if="${contract.number + 1 == item}">
+                    <li class="page-item active"><a class="page-link"
+                                                    th:href="@{/contract(page=${item - 1}, name = ${name})}"
+                                                    th:text="${item}"></a></li>
+                </div>
+                <div th:unless="${contract.number + 1 == item}">
+                    <li class="page-item"><a class="page-link"
+                                             th:href="@{/contract(page=${item - 1}, name = ${name})}"
+                                             th:text="${item}"></a></li>
+                </div>
+            </div>
+            <li class="page-item" th:if="${contract.hasNext()}">
+                <a class="page-link"
+                   th:href="@{/contract(page=${contract.number + 1}, name = ${name})}">Next</a>
+            </li>
+        </ul>
+    </div>
 </div>
 </tr>
 </body>

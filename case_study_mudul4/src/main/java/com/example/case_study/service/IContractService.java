@@ -1,9 +1,13 @@
 package com.example.case_study.service;
 
 import com.example.case_study.model.contract.Contract;
-
-import java.util.List;
+import com.example.case_study.model.contract.ContractDetail;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface IContractService {
-    List<Contract> findAll();
+
+    Page<Contract> findAll(String searchName, Pageable pageable);
+
+
 }
