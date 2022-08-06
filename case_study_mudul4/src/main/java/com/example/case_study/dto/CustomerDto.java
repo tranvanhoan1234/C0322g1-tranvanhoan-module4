@@ -16,9 +16,7 @@ public class CustomerDto {
     private Date birthday;
     @NotEmpty
     private String email;
-
     private Integer gender;
-
     @NotEmpty
     @Pattern(regexp = "^[0-9]{9}")
     private String idCard;

@@ -26,7 +26,6 @@
             <th> ngày bắt đầu</th>
             <th> ngày kết thúc</th>
             <th> tiền đặt cọc</th>
-            <th> delete</th>
             <th> tổng tiền</th>
             <th> các dịch vụ đi kèm</th>
         </tr>
@@ -44,13 +43,14 @@
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     +
                 </button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    danh sách các dịch vụ đi kèm
+                <button type="button"  class="btn btn-primary" data-toggle="modal"
+                        th:data-bs-target="'#staticBackdrop' + ${item.id}">
+                    danh sách các dịch dụ đi kèm
                 </button>
 
                 <!-- Modal -->
 
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                <div class="modal fade"  th:data-bs-target="'staticBackdrop' + ${item.id}"  tabindex="-1" aria-labelledby="exampleModalLabel"
                      aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -59,6 +59,21 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                             </div>
+                            <div class="modal-body">
+                                <table>
+                                    <tr>
+                                        <th>tên dịch vụ đi kèm</th>
+                                        <th>Giá dịch vụ đi kèm</th>
+                                        <th>Đơn vị</th>
+                                        <th>Trạng thái</th>
+                                    </tr>
+                                    <tr th:each="contractDetail:${contractDetails}" th:if="${contractDetail.item.id==item.id}">
+                                        <td th:text="${contractDetail.attachFacility.name}"></td>
+                                        <td th:text="${contractDetail.attachFacility.cost}"></td>
+                                        <td th:text="${contractDetail.attachFacility.unit}"></td>
+                                        <td th:text="${contractDetail.attachFacility.status}"></td>
+                                    </tr>
+                                </table>
                         </div>
                         <!-- cost input-->
 

@@ -65,18 +65,6 @@ public class CustomerController {
         return "redirect:/customer";
     }
 
-    //    @PostMapping(value = "/create")
-//    public String saveCreate(@Valid @ModelAttribute ProductDto productDto,
-//                             BindingResult bindingResult) {
-//        new ProductDto().validate(productDto, bindingResult);
-//        if (bindingResult.hasFieldErrors()) {
-//            return "create";
-//        }
-//        Product product = new Product();
-//        BeanUtils.copyProperties(productDto, product);
-//        iProductService.save(product);
-//        return "redirect:/";
-//    }
     @GetMapping("/delete/{id}")
     public String goDelete(@PathVariable Integer id) {
         iCustomerService.deleteCustomer(id);
