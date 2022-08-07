@@ -1,5 +1,6 @@
 package com.example.case_study.cofing;
 
+import com.example.case_study.service.impl.MyUserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,12 +9,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.authentication.rememberme.InMemoryTokenRepositoryImpl;
-import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class    WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private MyUserDetailServiceImpl myUserDetailService;
 
@@ -28,26 +27,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity https) throws Exception {
-        https.csrf().disable()
+    protected void configure(HttpSecurity http) throws Exception {
+
+        http.csrf().disable()
                 .formLogin()
-//                .loginPage()
-                .defaultSuccessUrl("/").permitAll()
+                .defaultSuccessUrl("/home")
                 .and()
-                .authorizeRequests()
+                .authorizeHttpRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/").hasRole("USER")
-                .antMatchers("/**").hasRole("ADMIN")
+                .antMatchers("/**").hasAnyRole("ADMIN")
+                .antMatchers("/customer/**").hasAnyRole("USER")
+                .antMatchers("/facility/**").hasAnyRole("USER")
+                .antMatchers("/contract/**").hasAnyRole("USER")
                 .anyRequest().authenticated();
-
-        https.authorizeRequests().and().rememberMe()
-                .tokenRepository(persistentTokenRepository())
-                .tokenValiditySeconds(24 * 60 * 60);
+    }
 
     }
 
-    private PersistentTokenRepository persistentTokenRepository() {
-        InMemoryTokenRepositoryImpl inMemoryTokenRepository = new InMemoryTokenRepositoryImpl();
-        return inMemoryTokenRepository;
-    }
-}

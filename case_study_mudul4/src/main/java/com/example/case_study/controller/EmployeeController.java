@@ -1,6 +1,5 @@
 package com.example.case_study.controller;
 
-import com.example.case_study.dto.EmployeeDto;
 import com.example.case_study.model.employee.Division;
 import com.example.case_study.model.employee.EducationDegree;
 import com.example.case_study.model.employee.Employee;
@@ -13,18 +12,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Controller
 @Scope
-
 public class EmployeeController {
     @Autowired
     IEmployeeService iEmployeeService;
@@ -49,18 +45,13 @@ public class EmployeeController {
     public List<EducationDegree> educationDegree() {
         return iEducationService.findAll();
     }
-
-
-
-
-
     @GetMapping("/employee/delete/{id}")
     public String goDelete(@PathVariable Integer id) {
         iEmployeeService.delete(id);
         return "redirect:/employee";
 
     }
-    @GetMapping("employee")
+    @GetMapping("/employee")
     public String goEmployee(
             Model model) {
         model.addAttribute("employee", iEmployeeService.findAll());

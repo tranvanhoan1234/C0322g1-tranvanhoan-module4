@@ -13,7 +13,7 @@ public class AttachFacility {
     private String unit;
     private String status;
     @OneToMany(mappedBy = "attachFacility")
-    private List<ContractDetail>contractDetails;
+    private List<ContractDetail> contractDetails;
 
     public AttachFacility() {
     }

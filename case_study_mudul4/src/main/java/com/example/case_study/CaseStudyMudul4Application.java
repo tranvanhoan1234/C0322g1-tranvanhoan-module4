@@ -8,9 +8,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class CaseStudyMudul4Application {
 
     public static void main(String[] args) {
+
         SpringApplication.run(CaseStudyMudul4Application.class, args);
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         System.out.println(passwordEncoder.encode("123"));
     }
+
 
 }

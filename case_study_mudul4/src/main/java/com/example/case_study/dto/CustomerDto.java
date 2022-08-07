@@ -14,14 +14,13 @@ public class CustomerDto {
     @NotEmpty
     private String address;
     private Date birthday;
-    @NotEmpty
+
     private String email;
     private Integer gender;
     @NotEmpty
-    @Pattern(regexp = "^[0-9]{9}")
     private String idCard;
     @NotEmpty
-    @Pattern(regexp = "^(((\\+|)84)|0)(3|5|7|8|9)+([0-9]{8})$", message = "sai định dạng 9 numbers")
+    @Pattern(regexp = "^(((\\+|)84)|0)(3|5|7|8|9)+([0-9]{8})$", message = "sai định dạng 10 numbers")
     private String phoneNumber;
     private byte status;
     @NotEmpty

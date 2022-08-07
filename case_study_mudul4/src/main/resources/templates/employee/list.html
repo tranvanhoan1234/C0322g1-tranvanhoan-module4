@@ -7,7 +7,7 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
+<div class="container-fluid">
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand"><span style="color: lightcyan">Employe</span></a>
@@ -26,12 +26,11 @@
             <th>salary</th>
             <th>email</th>
             <th>address</th>
-            <th>phoneNumber</th>
+            <th>pNumber</th>
             <th>idCard</th>
             <th>division</th>
             <th>position</th>
             <th>education</th>
-            <th>status</th>
             <th>delete</th>
             <th>edit</th>
         </tr>
@@ -51,7 +50,7 @@
             <td th:text=" ${item.division.nameDivision}"></td>
             <td th:text=" ${item.position.namePosition}"></td>
             <td th:text=" ${item.educationDegree.nameEducation}"></td>
-            <td th:text=" ${item.status}"></td>
+            <td hidden th:text=" ${item.status}"></td>
             <td>
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"

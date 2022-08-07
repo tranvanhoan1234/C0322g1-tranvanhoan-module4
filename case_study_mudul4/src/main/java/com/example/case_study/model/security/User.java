@@ -1,5 +1,4 @@
 package com.example.case_study.model.security;
-
 import javax.persistence.*;
 import java.util.List;
 

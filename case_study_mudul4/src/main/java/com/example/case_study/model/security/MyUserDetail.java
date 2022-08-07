@@ -2,21 +2,20 @@ package com.example.case_study.model.security;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.management.relation.Role;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 public class MyUserDetail implements UserDetails {
     private User user;
+
     public MyUserDetail() {
     }
+
     public MyUserDetail(User user) {
         this.user = user;
-
     }
 
     public User getUser() {
@@ -43,7 +42,7 @@ public class MyUserDetail implements UserDetails {
 
     @Override
     public String getUsername() {
-        return user.getUserName();
+        return getUsername();
     }
 
     @Override
@@ -63,5 +62,6 @@ public class MyUserDetail implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return user.isEnabled();
+        return true;
     }
+}

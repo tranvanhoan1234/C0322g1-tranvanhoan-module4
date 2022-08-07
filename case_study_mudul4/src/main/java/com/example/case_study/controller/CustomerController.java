@@ -30,12 +30,10 @@ public class CustomerController {
     private ICustomerService iCustomerService;
     @Autowired
     private ICustomerTypeService iCustomerTypeService;
-
     @ModelAttribute("customerTypes")
     public List<CustomerType> findAllCustomerType() {
         return this.iCustomerTypeService.findAll();
     }
-
     @GetMapping("/customer")
     public String goCustomer(@PageableDefault(3) Pageable pageable, Optional<String> name, Model model) {
         String searchName = name.orElse("");
@@ -78,7 +76,6 @@ public class CustomerController {
         model.addAttribute("customerTypeList", iCustomerTypeService.findAll());
         return "customer/edit";
     }
-
     @PostMapping("/edit")
     public String edit(@ModelAttribute Customer customer) {
         iCustomerService.edit(customer);
