@@ -34,7 +34,7 @@ public class    WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/home")
                 .and()
                 .authorizeHttpRequests()
-                .antMatchers("/").permitAll()
+                .antMatchers("/home").permitAll()
                 .antMatchers("/**").hasAnyRole("ADMIN")
                 .antMatchers("/customer/**").hasAnyRole("USER")
                 .antMatchers("/facility/**").hasAnyRole("USER")

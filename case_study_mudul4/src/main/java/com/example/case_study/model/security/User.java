@@ -1,5 +1,8 @@
 package com.example.case_study.model.security;
+import org.springframework.security.core.GrantedAuthority;
+
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -67,5 +70,9 @@ public class User {
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public Collection<GrantedAuthority> getAuthorities() {
+        return getAuthorities();
     }
 }

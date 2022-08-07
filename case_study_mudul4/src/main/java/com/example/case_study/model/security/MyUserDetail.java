@@ -7,7 +7,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
 public class MyUserDetail implements UserDetails {
     private User user;
 
@@ -42,7 +41,8 @@ public class MyUserDetail implements UserDetails {
 
     @Override
     public String getUsername() {
-        return getUsername();
+
+        return toString();
     }
 
     @Override
@@ -63,5 +63,26 @@ public class MyUserDetail implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+    public static String toString(User user) {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("UserName:").append(user.getUserName());
+
+        Collection<GrantedAuthority> authorities = user.getAuthorities();
+        if (authorities != null && !authorities.isEmpty()) {
+            sb.append(" (");
+            boolean first = true;
+            for (GrantedAuthority a : authorities) {
+                if (first) {
+                    sb.append(a.getAuthority());
+                    first = false;
+                } else {
+                    sb.append(", ").append(a.getAuthority());
+                }
+            }
+            sb.append(")");
+        }
+        return sb.toString();
     }
 }
